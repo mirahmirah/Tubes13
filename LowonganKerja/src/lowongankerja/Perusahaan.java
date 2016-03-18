@@ -5,6 +5,9 @@
  */
 package lowongankerja;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author user
@@ -14,12 +17,12 @@ public class Perusahaan {
 	private String alamat;
 
         public Perusahaan(String alamat,String nama, String email) {
+            super(nama,email);
             this.alamat = alamat;
-            super(nama,email)
         }
 	
-	public void createLowongan(String deadline, String nama){
-		daftarLowongan.add(new Lowongan(deadline, nama));
+	public void createLowongan(String deadline, String nama,String idLowongan){
+		daftarLowongan.add(new Lowongan(deadline, nama,idLowongan));
 	}
 	public Lowongan getLowongan(int indexLowongan){
 		return daftarLowongan.get(indexLowongan);
@@ -34,7 +37,7 @@ public class Perusahaan {
 	}
 	public void removeLowongan(String idLowongan){
 		for (int i = 0; i<daftarLowongan.size(); i++){
-			if(daftarLowongan.get(i).getIdLowongan().equals(idLowongan){
+			if(daftarLowongan.get(i).getIdLowongan().equals(idLowongan)){
 				daftarLowongan.remove(i);
 			}
 		}
