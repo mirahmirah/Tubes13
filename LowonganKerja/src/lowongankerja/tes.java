@@ -10,5 +10,6 @@ package lowongankerja;
  * @author adhis
  */
 public class tes {
-    
+ 
+    public void bla();
 }
