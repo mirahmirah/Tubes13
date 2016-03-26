@@ -42,5 +42,4 @@ public class BerkasLamaran {
         public void setPengalaman(String pengalaman) {
             this.pengalaman = pengalaman;
         }
-	
 }
