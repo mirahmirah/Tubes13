@@ -12,7 +12,8 @@ package lowongankerja;
 public class BerkasLamaran {
         private int index;
 	private String idBerkas;
-		
+	private String pengalaman;
+        private String lulusan;
 	public int getIndex(){
 		return index;
 	}
@@ -25,5 +26,21 @@ public class BerkasLamaran {
 	public void setIdBerkas(String idBerkas){
 		this.idBerkas = idBerkas;
 	}
+
+         public String getLulusan() {
+            return lulusan;
+        }
+
+        public void setLulusan(String lulusan) {
+            this.lulusan = lulusan;
+        }
+
+        public String getPengalaman() {
+            return pengalaman;
+        }
+
+        public void setPengalaman(String pengalaman) {
+            this.pengalaman = pengalaman;
+        }
 	
 }
