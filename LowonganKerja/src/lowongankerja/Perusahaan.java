@@ -49,4 +49,12 @@ public class Perusahaan extends Orang{
 	public void setAlamat(String alamat){
 		this.alamat = alamat;
 	}
+        public void Approval(String idBerkas, Lowongan l){
+            l.pindahBerkas(idBerkas);
+        }
+
+        public List<Lowongan> getDaftarLowongan() {
+            return daftarLowongan;
+        }
+        
 }
