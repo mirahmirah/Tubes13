@@ -40,11 +40,18 @@ public class Pelamar extends Orang {
     
     public void createBerkas(String idBerkas,String lulusan,String skill,String pengalaman,int i){
         berkas= new BerkasLamaran();
+        berkas.setNama(getNama());
+        berkas.setNoHp(getNoHp());
+        berkas.setEmail(getEmail());
         berkas.setIdBerkas(idBerkas);
         berkas.setLulusan(lulusan);
         berkas.setPengalaman(pengalaman);
         berkas.setSkill(skill);
         berkas.setIndex(i);
+    }
+
+    public BerkasLamaran getBerkas() {
+        return berkas;
     }
     
     public Lowongan cariLoker(String nama, Perusahaan p){
