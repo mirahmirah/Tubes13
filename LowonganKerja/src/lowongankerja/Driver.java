@@ -7,13 +7,8 @@ package lowongankerja;
 
 /**
  *
- * @author adhis
+ * @author user
  */
-public class LowonganKerja {
-
-    
-    public static void main(String[] args) {
-
-    }
+public class Driver {
     
 }
