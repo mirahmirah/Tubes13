@@ -21,7 +21,7 @@ public class Perusahaan extends Orang{
             setNama(nama);
             setEmail(email);
         }
-	
+
 	public void createLowongan(String deadline, String nama,String idLowongan){
 		daftarLowongan.add(new Lowongan(deadline, nama,idLowongan));
 	}
@@ -49,4 +49,12 @@ public class Perusahaan extends Orang{
 	public void setAlamat(String alamat){
 		this.alamat = alamat;
 	}
+        public void Approval(String idBerkas, Lowongan l){
+            l.pindahBerkas(idBerkas);
+        }
+
+        public List<Lowongan> getDaftarLowongan() {
+            return daftarLowongan;
+        }
+        
 }

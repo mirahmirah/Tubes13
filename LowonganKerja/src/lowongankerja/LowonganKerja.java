@@ -11,11 +11,10 @@ package lowongankerja;
  */
 public class LowonganKerja {
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+           AplikasiConsole drv = new AplikasiConsole();
+           drv.mainMenu();
     }
     
 }

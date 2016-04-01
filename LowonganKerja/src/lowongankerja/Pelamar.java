@@ -21,7 +21,7 @@ public class Pelamar extends Orang {
         this.skill.add(skill);
     }
 	
-	public String getSkill(int i){
+    public String getSkill(int i){
         return skill.get(i);
     }
     
