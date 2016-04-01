@@ -22,9 +22,6 @@ public class Perusahaan extends Orang{
             setEmail(email);
         }
 
-        public List<Lowongan> getDaftarLowongan() {
-            return daftarLowongan;
-        }
 	public void createLowongan(String deadline, String nama,String idLowongan){
 		daftarLowongan.add(new Lowongan(deadline, nama,idLowongan));
 	}
