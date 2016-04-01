@@ -21,7 +21,7 @@ public class Perusahaan extends Orang{
             setNama(nama);
             setEmail(email);
         }
-	
+
 	public void createLowongan(String deadline, String nama,String idLowongan){
 		daftarLowongan.add(new Lowongan(deadline, nama,idLowongan));
 	}
