@@ -13,7 +13,8 @@ public class LowonganKerja {
 
     
     public static void main(String[] args) {
-
+           AplikasiConsole drv = new AplikasiConsole();
+           drv.mainMenu();
     }
     
 }
