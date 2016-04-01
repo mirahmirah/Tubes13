@@ -52,4 +52,9 @@ public class Perusahaan extends Orang{
         public void Approval(String idBerkas, Lowongan l){
             l.pindahBerkas(idBerkas);
         }
+
+        public List<Lowongan> getDaftarLowongan() {
+            return daftarLowongan;
+        }
+        
 }
