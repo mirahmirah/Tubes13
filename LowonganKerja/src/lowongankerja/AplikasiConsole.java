@@ -15,6 +15,10 @@ import java.util.Scanner;
  */
 public class AplikasiConsole {
 
+    public AplikasiConsole() {
+    
+    }
+    
     private List<Orang> user=new ArrayList<>();
     public void addPelamar(Pelamar p){
        user.add(p);
@@ -63,8 +67,8 @@ public class AplikasiConsole {
         }
         return null;
     }
-    public void daftarKerja(){
-        
+    public void menuCreateBerkas(Pelamar pelamar,String lulusan,String pengalaman,String skill){
+        pelamar.createBerkas(lulusan, skill, pengalaman);
     }
     public Pelamar getPelamar(int idx){
         return (Pelamar) user.get(idx);
@@ -82,7 +86,7 @@ public class AplikasiConsole {
         }
         return null;
     }
-    public void daftarKerja(Perusahaan perusahaan,Pelamar pelamar,String idLowongan){
+    public void menuDaftarKerja(Perusahaan perusahaan,Pelamar pelamar,String idLowongan){
         perusahaan.getLowongan(idLowongan).addBerkas(pelamar.getBerkas());
     }
     
@@ -99,6 +103,12 @@ public class AplikasiConsole {
     }
     public Lowongan menuInfoLowongan(Perusahaan perusahaan,String idLowongan){
         return perusahaan.getLowongan(idLowongan);
+    }
+    public void menuCreateLowongan(Perusahaan perusahaan,String deadline,String name,String idLowongan){
+        perusahaan.createLowongan(deadline, name, idLowongan);
+    }
+    public void menuRemoveLowongan(Perusahaan perusahaan,String idLowongan){
+        perusahaan.removeLowongan(idLowongan);
     }
     public void mainMenu(){
         Scanner input=new Scanner(System.in);
@@ -127,7 +137,7 @@ public class AplikasiConsole {
                     System.out.println("Daftar Kerja");
                     System.out.println("Input Id Lowongan : ");
                     String idLowongan=input.nextLine();
-                    daftarKerja(menuCariKerja(name),pelamar,idLowongan);
+                    menuDaftarKerja(menuCariKerja(name),pelamar,idLowongan);
                     break;
                 case 2:
                     System.out.println("Menu Buat Berkas");
@@ -137,7 +147,7 @@ public class AplikasiConsole {
                     String pengalaman=input.nextLine();
                     System.out.println("Input Skill : ");
                     String skill=input.nextLine();
-                    pelamar.createBerkas(lulusan,pengalaman,skill);
+                    menuCreateBerkas(pelamar,lulusan,pengalaman,skill);
                     break;
                 case 3:
                     System.out.println("Semua Lowongan Kerja");
@@ -156,7 +166,7 @@ public class AplikasiConsole {
                     String nmPerusahaan=input.nextLine();
                     System.out.println("Input Id Lowongan : ");
                     idLowongan=input.nextLine();
-                    daftarKerja(menuCariKerja(nmPerusahaan),pelamar,idLowongan);
+                    menuDaftarKerja(menuCariKerja(nmPerusahaan),pelamar,idLowongan);
             }
         }else if(menuLogin(username, password)instanceof Perusahaan){
             Perusahaan perusahaan=(Perusahaan) menuLogin(username, password);
@@ -173,7 +183,7 @@ public class AplikasiConsole {
                     String deadline=input.nextLine();
                     System.out.print("Input idLowongan      : ");
                     String idLowongan=input.nextLine();
-                    perusahaan.createLowongan(deadline, name, idLowongan);
+                    menuCreateLowongan(perusahaan,deadline, name, idLowongan);
                     break;
                 case 2 :
                     System.out.println("Menu Hapus Lowongan");
@@ -207,7 +217,7 @@ public class AplikasiConsole {
                         System.out.println("Pilih Berkas Yang Diterima");
                         System.out.print("Input id Berkas");
                         String idBerkas=input.nextLine();
-                        perusahaan.approval(idBerkas,menuInfoLowongan(perusahaan, idLowongan));
+                        perusahaan.Approval(idBerkas,menuInfoLowongan(perusahaan, idLowongan));
                     }
             }
         }

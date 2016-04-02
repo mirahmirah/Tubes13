@@ -92,4 +92,7 @@ public class Lowongan {
             System.out.println("Indeks Berkas "+getBerkasMasuk(i).getIdBerkas());
         }
     }      
+    public List<BerkasLamaran> getBerkasMasuk() {
+        return berkasMasuk;
+    }
 }

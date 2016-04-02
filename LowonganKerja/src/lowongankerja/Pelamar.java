@@ -12,17 +12,25 @@ import java.util.List;
  * @author ISMA
  */
 public class Pelamar extends Orang {
-    private List<String> skill = new ArrayList<>();
+    private String skill;
     private BerkasLamaran berkas;
     private String pengalaman;
     private String lulusan;
-    
-    public void setSkill (String skill){
-        this.skill.add(skill);
+
+    public String getSkill() {
+        return skill;
     }
-	
-    public String getSkill(int i){
-        return skill.get(i);
+
+    public String getLulusan() {
+        return lulusan;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public void setLulusan(String lulusan) {
+        this.lulusan = lulusan;
     }
     
     public void setPengalaman (String pengalaman){
@@ -38,33 +46,19 @@ public class Pelamar extends Orang {
         berkas.setIdBerkas(idBerkas);
     }
     
-    public void createBerkas(String idBerkas,String lulusan,String skill,String pengalaman,int i){
+    public void createBerkas(String lulusan,String skill,String pengalaman){
         berkas= new BerkasLamaran();
         berkas.setNama(getNama());
         berkas.setNoHp(getNoHp());
         berkas.setEmail(getEmail());
-        berkas.setIdBerkas(idBerkas);
+        berkas.setIdBerkas(getId());
         berkas.setLulusan(lulusan);
         berkas.setPengalaman(pengalaman);
         berkas.setSkill(skill);
-        berkas.setIndex(i);
     }
 
     public BerkasLamaran getBerkas() {
         return berkas;
     }
     
-    public Lowongan cariLoker(String nama, Perusahaan p){
-        List<Lowongan> lowongan = p.getDaftarLowongan();
-        for (int i=0;i<lowongan.size();i++){
-            if(lowongan.get(i).getNama().equals(nama)){
-                return lowongan.get(i);
-            }
-        }
-        return null;
-    }
-    
-    public void daftarKerja(Lowongan l){
-        l.addBerkas(berkas);
-    }
 }
