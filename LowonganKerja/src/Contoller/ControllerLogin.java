@@ -34,10 +34,6 @@ public class ControllerLogin implements ActionListener {
             view= new menuLogIn();
             view.setVisible(true);
             view.addListener(this);
-            view.setUserName(o.getUsername());
-            view.setPassword(o.getPassword());
-            view.getBtnLogin().setText("Login");
-            view.setTitle("Menu Login");
         }
         public void actionPerformed(ActionEvent e){
             Object source=e.getSource();

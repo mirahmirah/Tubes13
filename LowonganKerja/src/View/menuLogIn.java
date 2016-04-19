@@ -45,21 +45,8 @@ public class menuLogIn extends javax.swing.JFrame {
     }
     public void addListener(ActionListener e){
         btnLogin.addActionListener(e);
-        btnPelamar.addActionListener(e);
-        btnPerusahaan.addActionListener(e);
     }
 
-    public JRadioButton getBtnPelamar() {
-        return btnPelamar;
-    }
-
-    public JRadioButton getBtnPerusahaan() {
-        return btnPerusahaan;
-    }
-
-    public ButtonGroup getBtnGrup() {
-        return btnGrup;
-    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

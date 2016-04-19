@@ -15,7 +15,7 @@ import java.util.List;
 public class Perusahaan extends Orang{
         private List<Lowongan> daftarLowongan = new ArrayList<>();
 	private String alamat;
-
+        
         public Perusahaan(String alamat,String nama, String email) {
             this.alamat = alamat;
             setNama(nama);

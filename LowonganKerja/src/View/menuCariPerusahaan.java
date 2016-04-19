@@ -260,8 +260,8 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         return lowongankerjalist;
     }
 
-    public JTextField getNmperusahaan() {
-        return nmperusahaan;
+    public String getNmperusahaan() {
+        return nmperusahaan.getText();
     }
 
     public String getPengalaman() {

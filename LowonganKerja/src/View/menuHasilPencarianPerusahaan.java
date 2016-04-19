@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import javax.swing.JList;
 import javax.swing.JTextField;
@@ -32,36 +33,43 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollBar1 = new javax.swing.JScrollBar();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listlowongan = new javax.swing.JList<>();
         nmperusahaan = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listLowongan = new javax.swing.JList<>();
+        btnDaftar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jScrollBar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        listlowongan.setFont(new java.awt.Font("OCR A Extended", 1, 14)); // NOI18N
-        listlowongan.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Finance Manager", "", "", "", "", "", "Operatioal System Staff", "Marketing Officer" };
+        nmperusahaan.setText("NamaPerusahaan");
+
+        listLowongan.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(listlowongan);
+        jScrollPane2.setViewportView(listLowongan);
 
-        nmperusahaan.setText("NamaPerusahaan");
+        btnDaftar.setText("jButton1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(108, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(nmperusahaan)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
-                .addGap(60, 60, 60)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nmperusahaan, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnDaftar)
+                        .addGap(163, 163, 163))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,10 +77,12 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(nmperusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnDaftar)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -82,31 +92,31 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
-    public JList<String> getListlowongan() {
-        return listlowongan;
-    }
 
+    public JList getListLowongan(){
+        return listLowongan;
+    }
+    
     public String getNmperusahaan() {
         return nmperusahaan.getText();
     }
-    public int getSelectedLowongan(){
-        return Integer.parseInt((String) listlowongan.getSelectedValue());
-    }
-    public void setListlowongan(String[] listlowongan) {
-        this.listlowongan.setListData(listlowongan);
-    }
 
+    public void setListlowongan(String[] listlowongan) {
+        this.listLowongan.setListData(listlowongan);
+    }
+    
     public void setNmperusahaan(String nmperusahaan) {
         this.nmperusahaan.setText(nmperusahaan);
     }
-    public void addAdapter(MouseAdapter e){
-        listlowongan.addMouseListener(e);
+    public void addListener(ActionListener e){
+        btnDaftar.addActionListener(e);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDaftar;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listlowongan;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> listLowongan;
     private javax.swing.JTextField nmperusahaan;
     // End of variables declaration//GEN-END:variables
 }

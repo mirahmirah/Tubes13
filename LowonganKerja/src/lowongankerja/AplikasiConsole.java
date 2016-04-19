@@ -21,6 +21,23 @@ public class AplikasiConsole {
     
     private List<Perusahaan> user=new ArrayList<>();
     private List<Pelamar> user2=new ArrayList<>();
+
+    public List<Perusahaan> getUser() {
+        return user;
+    }
+    public String[] getNamaLowongan(){
+        String[] s=new String[user.get()]
+    }
+    public String[] getNamaPerusahaan(){
+        String[] s=new String[user.size()];
+        for(int i=0;i<=user.size();i++){
+            s[i]=user.get(i).getNama();
+        }
+        return s;
+    }
+    public List<Pelamar> getUser2() {
+        return user2;
+    }
     
     public void addPelamar(Pelamar p){
        user2.add(p);
@@ -57,7 +74,7 @@ public class AplikasiConsole {
     public Perusahaan getPerusahaan(String nama){
         for(int i=0;i<user.size();i++){
             if(user.get(i).getNama().equals(nama)){
-                    return (Perusahaan) user.get(i);
+                    return user.get(i);
             }
         }
         return null;
