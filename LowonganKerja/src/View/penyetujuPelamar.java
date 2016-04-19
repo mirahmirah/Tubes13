@@ -1,5 +1,9 @@
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,22 +32,31 @@ public class penyetujuPelamar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        idlowongan = new javax.swing.JLabel();
+        idlowonganfield = new javax.swing.JTextField();
+        btnSetuju = new javax.swing.JButton();
+        namajabatanfield = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("Id Lowongan   :");
+        idlowongan.setText("Id Lowongan   :");
 
-        jTextField1.setText("003");
+        idlowonganfield.setText("003");
+        idlowonganfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idlowonganfieldActionPerformed(evt);
+            }
+        });
 
-        jButton1.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 12)); // NOI18N
-        jButton1.setText("Setuju");
+        btnSetuju.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 12)); // NOI18N
+        btnSetuju.setText("Setuju");
 
-        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
-        jLabel1.setText("Finance Manager");
+        namajabatanfield.setText("namajabatan");
+        namajabatanfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namajabatanfieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,73 +65,75 @@ public class penyetujuPelamar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
-                        .addComponent(jButton1)))
+                        .addComponent(btnSetuju))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(idlowongan)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(idlowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(namajabatanfield, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addGap(59, 59, 59)
+                .addGap(34, 34, 34)
+                .addComponent(namajabatanfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(idlowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idlowongan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(60, 60, 60)
-                .addComponent(jButton1)
+                .addComponent(btnSetuju)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void namajabatanfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namajabatanfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namajabatanfieldActionPerformed
+
+    private void idlowonganfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idlowonganfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idlowonganfieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(penyetujuPelamar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(penyetujuPelamar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(penyetujuPelamar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(penyetujuPelamar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new penyetujuPelamar().setVisible(true);
-            }
-        });
+    public JButton getBtnSetuju() {
+        return btnSetuju;
+    }
+
+    public String getIdlowonganfield() {
+        return idlowonganfield.getText();
+    }
+
+    public String getNamajabatanfield() {
+        return namajabatanfield.getText();
+    }
+
+    public void setIdlowonganfield(String idlowonganfield) {
+        this.idlowonganfield.setText(idlowonganfield);
+    }
+
+    public void setNamajabatanfield(String namajabatanfield) {
+        this.namajabatanfield.setText(namajabatanfield);
+    }
+    public void addListener(ActionListener e){
+        btnSetuju.addActionListener(e);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton btnSetuju;
+    private javax.swing.JLabel idlowongan;
+    private javax.swing.JTextField idlowonganfield;
+    private javax.swing.JTextField namajabatanfield;
     // End of variables declaration//GEN-END:variables
 }
