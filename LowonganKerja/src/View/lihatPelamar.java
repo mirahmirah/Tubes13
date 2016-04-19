@@ -97,9 +97,6 @@ public class lihatPelamar extends javax.swing.JFrame {
         return idlowonganfield.getText();
     }
 
-    public void setBtnLihat(JButton btnLihat) {
-        this.btnLihat = btnLihat;
-    }
 
     public void setIdlowonganfield(String idlowonganfield) {
         this.idlowonganfield.setText(idlowonganfield);

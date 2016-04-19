@@ -19,9 +19,11 @@ public class AplikasiConsole {
     
     }
     
-    private List<Orang> user=new ArrayList<>();
+    private List<Perusahaan> user=new ArrayList<>();
+    private List<Pelamar> user2=new ArrayList<>();
+    
     public void addPelamar(Pelamar p){
-       user.add(p);
+       user2.add(p);
     }
     public void addPerusahaan(Perusahaan p){
         user.add(p);
@@ -29,10 +31,8 @@ public class AplikasiConsole {
     
     public Pelamar getPelamar(String id){
         for(int i=0;i<user.size();i++){
-            if(user.get(i).getId().equals(id)){
-                if(user.get(i) instanceof Pelamar){
-                    return (Pelamar) user.get(i);
-                }
+            if(user2.get(i).getId().equals(id)){
+                return user2.get(i);
             }
         }
         return null;
@@ -40,10 +40,8 @@ public class AplikasiConsole {
     
     public void deletePelamar(String id){
         for(int i=0;i<user.size();i++){
-            if(user.get(i).getId().equals(id)){
-                if(user.get(i) instanceof Pelamar){
+            if(user2.get(i).getId().equals(id)){
                     user.remove(i);
-                }
             }
         }
     }
@@ -51,18 +49,15 @@ public class AplikasiConsole {
     public void deletePerusahaan(String id){
         for(int i=0;i<user.size();i++){
             if(user.get(i).getId().equals(id)){
-                if(user.get(i) instanceof Perusahaan){
                     user.remove(i);
-                }
             }
         }
     }
+    
     public Perusahaan getPerusahaan(String nama){
         for(int i=0;i<user.size();i++){
             if(user.get(i).getNama().equals(nama)){
-                if(user.get(i) instanceof Perusahaan){
                     return (Perusahaan) user.get(i);
-                }
             }
         }
         return null;
@@ -71,20 +66,10 @@ public class AplikasiConsole {
         pelamar.createBerkas(lulusan, skill, pengalaman);
     }
     public Pelamar getPelamar(int idx){
-        return (Pelamar) user.get(idx);
+        return (Pelamar) user2.get(idx);
     }
     public Perusahaan getPerusahaan(int idx){
         return (Perusahaan) user.get(idx);
-    }
-    public Perusahaan menuCariKerja(String nama){
-        for(int i=0;i<user.size();i++){
-            if(user.get(i).getNama().equals(nama)){
-                if(user.get(i) instanceof Perusahaan){
-                    return(Perusahaan) user.get(i);
-                }
-            }
-        }
-        return null;
     }
     public void menuDaftarKerja(Perusahaan perusahaan,Pelamar pelamar,String idLowongan){
         perusahaan.getLowongan(idLowongan).addBerkas(pelamar.getBerkas());
@@ -93,10 +78,18 @@ public class AplikasiConsole {
     public List<BerkasLamaran> menuInfoPelamar(Perusahaan perusahaan,String idLowongan){
         return perusahaan.getLowongan(idLowongan).getBerkasMasuk();
     }
-    public Orang menuLogin(String username, String password){
+    public Perusahaan menuLoginPerusahaan(String username, String password){
         for(int i=0;i<=user.size();i++){
             if((user.get(i).getUsername().equals(username)) && (user.get(i).getPassword().equals(password))){
               return user.get(i);
+            }
+        }
+        return null;
+    }
+    public Pelamar menuLoginPelamar(String username,String password){
+        for(int i=0;i<user2.size();i++){
+            if((user2.get(i).getUsername().equals(username)) &&(user.get(i).getPassword().equals(password))){
+                return user2.get(i);
             }
         }
         return null;

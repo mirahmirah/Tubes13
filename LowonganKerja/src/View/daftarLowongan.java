@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 /**
@@ -39,7 +40,9 @@ public class daftarLowongan extends javax.swing.JFrame {
     public JButton getBtnDaftar(){
         return btnDaftar;
     }
-    
+    public void addListener(ActionListener e){
+        btnDaftar.addActionListener(e);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

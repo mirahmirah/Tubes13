@@ -22,7 +22,7 @@ public class Lowongan {
     public Lowongan() {
     
     }
-
+    
     public Lowongan(String deadline,String nama,String idLowongan) {
         this.deadline = deadline;
         this.nama=nama;

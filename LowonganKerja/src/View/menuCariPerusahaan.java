@@ -296,7 +296,9 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         btnCari.addActionListener(e);
         btnDaftar.addActionListener(e);
     }
-    
+    public void setLowonganKerjaList(String[] list){
+        lowongankerjalist.setListData(list);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuat;
     private java.awt.Button btnCari;
