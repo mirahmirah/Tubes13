@@ -64,7 +64,7 @@ public class inputIdLowongan extends javax.swing.JFrame {
         btnDaftar.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 12)); // NOI18N
         btnDaftar.setText("Daftar");
 
-        namaperusahaan.setText("namaperusahaan");
+        namaperusahaan.setText("PT.Pertamina");
         namaperusahaan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namaperusahaanActionPerformed(evt);

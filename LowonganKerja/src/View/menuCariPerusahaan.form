@@ -138,24 +138,19 @@
                           <Component id="pengalamanlabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="riwayatpendidikanlabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="pengalaman" pref="196" max="32767" attributes="0"/>
-                                      <Component id="skill" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="riwayatpendidikan" pref="196" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="pengalaman" pref="196" max="32767" attributes="0"/>
+                              <Component id="skill" max="32767" attributes="0"/>
+                              <Component id="riwayatpendidikan" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Component id="btnBuat" min="-2" pref="66" max="-2" attributes="0"/>
-                              <EmptySpace pref="164" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

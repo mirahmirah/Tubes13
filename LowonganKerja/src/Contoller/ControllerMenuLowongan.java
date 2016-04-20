@@ -9,6 +9,7 @@ import View.menuCariPerusahaan;
 import View.menuLowongan;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import lowongankerja.AplikasiConsole;
 import lowongankerja.Pelamar;
 import lowongankerja.Perusahaan;
@@ -19,31 +20,34 @@ import lowongankerja.Perusahaan;
  */
 public class ControllerMenuLowongan implements ActionListener{
     private AplikasiConsole model;
-    private menuCariPerusahaan view;
+    private menuLowongan view;
     private Perusahaan p;
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    public ControllerMenuLowongan(AplikasiConsole model){
+        
+    public ControllerMenuLowongan(AplikasiConsole model,Perusahaan p){
         this.model=model;
         view= new menuLowongan();
         view.setVisible(true);
         view.addListener(this);
-        view.setListdaftarlowongan(p.getDaftarLowongan());
+        view.setListdaftarlowongan(p.getNamaLowongan());
     }
     @Override
     public void actionPerformed(ActionEvent ae){
         Object menulowongan = ae.getSource();
-        if(menulowongan.equals(view.getAdd(model))){
-            new ControllerMenuLowongan(model);
+        if(menulowongan.equals(view.getAdd())){
+            String idLowongan = view.getIdLowongan();
+            String namaLowongan = view.getNamaLowongan();
+            String deadline = view.getDeadline();
+            p.createLowongan(deadline, namaLowongan, idLowongan);
+            JOptionPane.showMessageDialog(null, "Data berhasil!");
+        } else if(menulowongan.equals(view.getBtnLihat())){
+            view.setVisible(false);
+            new ControllerLihatPelamar(model, p);
             view.dispose();
-        } else if(menulowongan.equals(view.getBtnLihat(model))){
-            view.dispose();
-        }else if(menulowongan.equals(view.getBtnHapus)){
-            
-            view.dispose();
+        }else if(menulowongan.equals(view.getBtnHapus())){
+            String idLowongan = view.getIdlowongan1field();
+            p.removeLowongan(idLowongan);
+            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
         }
         
     }
