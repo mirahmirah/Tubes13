@@ -25,13 +25,16 @@ public class AplikasiConsole {
     public List<Perusahaan> getUser() {
         return user;
     }
-    public String[] getNamaLowongan(){
-        String[] s=new String[user.get()]
-    }
     public String[] getNamaPerusahaan(){
         String[] s=new String[user.size()];
         for(int i=0;i<=user.size();i++){
             s[i]=user.get(i).getNama();
+//            String[] k=new String[user.get(i).getDaftarLowongan().size()];
+//            for(int j=0;j<=user.get(i).getDaftarLowongan().size();j++){
+//                k[j]="Nama Lowongan : "+user.get(i).getDaftarLowongan().get(i).getNama()+"/n"
+//                        +"IdLowongan : "+user.get(i).getDaftarLowongan().get(i).getIdLowongan()+"/n"
+//                        +"DeadLine : "+user.get(i).getDaftarLowongan().get(i).getDeadline();
+//            }
         }
         return s;
     }
@@ -88,7 +91,7 @@ public class AplikasiConsole {
     public Perusahaan getPerusahaan(int idx){
         return (Perusahaan) user.get(idx);
     }
-    public void menuDaftarKerja(Perusahaan perusahaan,Pelamar pelamar,String idLowongan){
+    public void daftarKerja(Perusahaan perusahaan,Pelamar pelamar,String idLowongan){
         perusahaan.getLowongan(idLowongan).addBerkas(pelamar.getBerkas());
     }
     

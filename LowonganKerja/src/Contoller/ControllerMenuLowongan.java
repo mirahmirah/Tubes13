@@ -6,6 +6,7 @@
 package Contoller;
 
 import View.menuCariPerusahaan;
+import View.menuLowongan;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import lowongankerja.AplikasiConsole;
@@ -27,10 +28,10 @@ public class ControllerMenuLowongan implements ActionListener{
     }
     public ControllerMenuLowongan(AplikasiConsole model){
         this.model=model;
-        view= new menuCariPerusahaan();
+        view= new menuLowongan();
         view.setVisible(true);
         view.addListener(this);
-        view.setListdaftarlowongan(model.getPerusahaan());
+        view.setListdaftarlowongan(p.getDaftarLowongan());
     }
     @Override
     public void actionPerformed(ActionEvent ae){

@@ -7,6 +7,7 @@ package View;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
@@ -99,6 +100,9 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
     
     public String getNmperusahaan() {
         return nmperusahaan.getText();
+    }
+    public JButton getBtnDaftar(){
+        return btnDaftar;
     }
 
     public void setListlowongan(String[] listlowongan) {

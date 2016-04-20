@@ -45,7 +45,7 @@ public class ControllerMenuCariPerusahaan implements ActionListener{
             JOptionPane.showMessageDialog(null, "Berkas berhasil dibuat");
         }else if(source.equals(view.getBtnDaftar())){
             view.setVisible(false);
-            new ControllerDaftarLowongan(model,p);
+            new ControllerDaftarKerja(model,p);
         }
     }
     

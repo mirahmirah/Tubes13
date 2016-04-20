@@ -5,7 +5,7 @@
  */
 package Contoller;
 
-import View.menuHasilPencarianPerusahaan;
+import View.daftarKerja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import lowongankerja.AplikasiConsole;
@@ -16,26 +16,24 @@ import lowongankerja.Perusahaan;
  *
  * @author adhis
  */
-public class ControllerHasilPencarianPerusahaan implements ActionListener{
+public class ControllerDaftarKerja implements ActionListener{
     private AplikasiConsole model;
-    private menuHasilPencarianPerusahaan view;
+    private daftarKerja view;
     private Pelamar p;
     private Perusahaan per;
-    public ControllerHasilPencarianPerusahaan(AplikasiConsole model,Perusahaan per,Pelamar p){
+    public ControllerDaftarKerja(AplikasiConsole model,Perusahaan per,Pelamar p){
         this.model=model;
-        view=new menuHasilPencarianPerusahaan();
+        view =new daftarKerja();
         view.setVisible(true);
         view.addListener(this);
-        view.setListlowongan(per.getNamaLowongan());
         this.p=p;
         this.per=per;
     }
     public void actionPerformed(ActionEvent e){
         Object source=e.getSource();
         if(source.equals(view.getBtnDaftar())){
-            view.setVisible(false);
-            new ControllerDaftarKerja(model,per,p);
+            String idLowongan=view.getIdLowongan();
+            model.daftarKerja(per, p, idLowongan);
         }
     }
-    
 }

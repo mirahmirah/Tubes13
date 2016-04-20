@@ -22,6 +22,13 @@ public class Perusahaan extends Orang{
             setEmail(email);
         }
 
+        public String[] getNamaLowongan(){
+            String[] s=new String[daftarLowongan.size()];
+            for(int i=0;i<=daftarLowongan.size();i++){
+                s[i]="Nama Lowongan "+daftarLowongan.get(i).getNama()+" Id Lowongan "+daftarLowongan.get(i).getIdLowongan();
+            }
+            return s;
+        }
 	public void createLowongan(String deadline, String nama,String idLowongan){
 		daftarLowongan.add(new Lowongan(deadline, nama,idLowongan));
 	}
