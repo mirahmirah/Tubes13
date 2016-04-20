@@ -136,22 +136,13 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="namaLowonganfield">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namaLowonganfieldActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="idLowonganfield">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="deadlinefield">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField3"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnAdd">
               <Properties>

@@ -118,16 +118,11 @@ public class menuLowongan extends javax.swing.JFrame {
 
         deadline.setText("Deadline                    :");
 
-        namaLowonganfield.setText("jTextField1");
         namaLowonganfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namaLowonganfieldActionPerformed(evt);
             }
         });
-
-        idLowonganfield.setText("jTextField1");
-
-        deadlinefield.setText("jTextField3");
 
         btnAdd.setText("Tambah");
 
