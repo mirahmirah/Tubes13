@@ -81,6 +81,14 @@ public class Aplikasi {
         }
     }
     
+    public void RegistrasiPelamar (Pelamar p){
+        data.savePelamar(p);
+    }
+    
+    public void RegistrasiPerusahaan (Perusahaan p){
+        data.savePerusahaan(p);
+   }  
+    
     public List<BerkasLamaran> getBerkas(int idLowongan){
         List<BerkasLamaran> berkas=new ArrayList<>();
         berkas=data.getBerkas(idLowongan);
