@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author ISMA
  */
-public class Orang implements Serializable{
+public class Orang {
     private String nama;
     private String email;
     private String noHp;  

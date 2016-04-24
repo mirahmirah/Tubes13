@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author adhis
  */
-public class Lowongan implements Serializable{
+public class Lowongan{
     private List<BerkasLamaran> berkasMasuk=new ArrayList<>();
     private List<BerkasLamaran> berkasDiterima=new ArrayList<>();
     private int idLowongan;

@@ -19,11 +19,11 @@ public class Aplikasi {
     private Perusahaan perusahaan;
     private Pelamar pelamar;
     
+    
     public Aplikasi(){
         this.data=new Database();
         data.connect();
     }
-    
     public Pelamar loginPelamar(String username,String password){
         Pelamar p=data.getPelamar(username, password);
         if(p!= null){

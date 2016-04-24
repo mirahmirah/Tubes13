@@ -9,10 +9,13 @@ import Model.Lowongan;
 import java.awt.Button;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -262,6 +265,10 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         return cariperusahaan;
     }
 
+    public JTable getTableLowongan() {
+        return tableLowongan;
+    }
+
     public JPanel getInfolowongankerja() {
         return infolowongankerja;
     }
@@ -322,7 +329,10 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         tableLowongan.setModel(new DefaultTableModel(data,judul));
     }
     public int getSelected(){
-        return tableLowongan.getSelectedRow();
+        return tableLowongan.getSelectedColumn();
+    }
+    public void addMouseReleased(MouseAdapter e){
+        tableLowongan.addMouseListener(e);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
