@@ -39,8 +39,6 @@ public class ControllerHasilPencarianPerusahaan implements ActionListener{
         if(source.equals(view.getBtnDaftar())){
             view.setVisible(false);
             model.daftarKerja(p, selected+1);
-            
-//            new ControllerDaftarKerja(model,per,p);
         }
     }
     public void mouseClicked(MouseEvent e){

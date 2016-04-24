@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import Model.Aplikasi;
 import Model.Pelamar;
 import Model.Perusahaan;
-import Model.Simpan;
 import java.awt.event.MouseListener;
 import java.util.Date;
 import java.util.List;
@@ -26,15 +25,14 @@ public class ControllerMenuLowongan implements ActionListener{
     private Aplikasi model;
     private menuLowongan view;
     private Perusahaan p;
-    private Database connection;
-    private Simpan s;
     public ControllerMenuLowongan(Aplikasi model,Perusahaan p){
         this.model=model;
-        view= new menuLowongan();
+        this.p=p;
+        view =new menuLowongan();
+        view.viewAll(model.cariPerusahaan(p.getNama()));
         view.setVisible(true);
         view.addListener(this);
-        view.
-        this.s=new Simpan();
+        
     }
     @Override
     public void actionPerformed(ActionEvent ae){
@@ -43,6 +41,7 @@ public class ControllerMenuLowongan implements ActionListener{
             String namaLowongan = view.getNamaLowongan();
             Date deadline = view.getDeadline();
             p.createLowongan(deadline, namaLowongan);
+            JOptionPane.showMessageDialog(null, "Data berhasil!"+deadline);
             model.createLowongan(p, p.getLowongan(namaLowongan));
             JOptionPane.showMessageDialog(null, "Data berhasil!");
             new ControllerMenuLowongan(model,p);

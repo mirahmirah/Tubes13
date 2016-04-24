@@ -44,7 +44,6 @@ public class ControllerLogin implements ActionListener {
                     view.dispose();
                 }else if(model.loginPerusahaan(username,password)!=null){
                     Perusahaan p=model.loginPerusahaan(username, password);
-                    view.setVisible(false);
                     new ControllerMenuLowongan(model,p);
                     view.dispose();
                 }else{

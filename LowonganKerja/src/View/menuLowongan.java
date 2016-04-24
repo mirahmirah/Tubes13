@@ -23,6 +23,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class menuLowongan extends javax.swing.JFrame {
 
+    public menuLowongan() {
+        initComponents();
+    }
+    
     public String getNamaLowongan() {
         return namaLowonganfield.getText();
     }
@@ -42,9 +46,6 @@ public class menuLowongan extends javax.swing.JFrame {
     public void addListener(ActionListener e){
         btnAdd.addActionListener(e);
     }
-    public menuLowongan() {
-        initComponents();
-    }
 
     public JButton getBtnLihat() {
         return btnLihat;
@@ -63,13 +64,23 @@ public class menuLowongan extends javax.swing.JFrame {
     public void setIdlowongan1field(String idlowongan1field) {
         this.idlowongan1field.setText(idlowongan1field);
     }
-    public void viewAll(){
-        
+    public void viewAll(List<Lowongan> low){
+        String[] judul={
+            "idLowongan","Nama Lowongan","DeadLine"
+        };
+        String[][] data=new String[low.size()][3];
+        for(int i=0;i<low.size();i++){
+            Lowongan l=low.get(i);
+            data[i][0]=String.valueOf(l.getIdLowongan());
+            data[i][1]=String.valueOf(l.getNama());
+            data[i][2]=String.valueOf(l.getDeadline());
+        }
+        tblLowongan.setModel(new DefaultTableModel(data,judul));
     }
     public int getSelected(){
         return tblLowongan.getSelectedRow();
     }
-    public void addAdapter(MouseAdapter e){
+    public void addMouseListener(MouseAdapter e){
         tblLowongan.addMouseListener(e);
     }
     
