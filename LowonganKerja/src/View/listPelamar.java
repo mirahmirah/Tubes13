@@ -10,14 +10,14 @@ import java.awt.event.MouseAdapter;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JList;
-import lowongankerja.BerkasLamaran;
+import Model.BerkasLamaran;
 /**
  *
  * @author ISMA
  */
 public class listPelamar extends javax.swing.JFrame {
 
-    private JButton getBtnOk(){
+    public JButton getBtnOk(){
         return btnOk;
     }
     public JList getListSelectId(){

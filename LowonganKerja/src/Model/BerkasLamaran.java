@@ -3,40 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lowongankerja;
+package Model;
+
+import java.io.Serializable;
 
 /**
  *
  * @author user
  */
-public class BerkasLamaran {
-        private int index;
-	private String idBerkas;
-	private String pengalaman;
-        private String lulusan;
+public class BerkasLamaran implements Serializable{
+        private int idBerkas ;
+        private String pengalaman;
+        private String pendidikan;
         private String skill;
 	private String nama;
         private String email;
         private String noHp;
-        public int getIndex(){
-		return index;
-	}
-	public void setIndex(int Index){
-		this.index = index;
-	}
-	public String getIdBerkas(){
+        
+	public int getIdBerkas(){
 		return idBerkas;
 	}
-	public void setIdBerkas(String idBerkas){
+	public void setIdBerkas(int idBerkas){
 		this.idBerkas = idBerkas;
 	}
 
-         public String getLulusan() {
-            return lulusan;
+         public String getPendidikan() {
+            return pendidikan;
         }
 
-        public void setLulusan(String lulusan) {
-            this.lulusan = lulusan;
+        public void setPendidikan(String pendidikan) {
+            this.pendidikan = pendidikan;
         }
 
         public String getPengalaman() {
@@ -78,5 +74,6 @@ public class BerkasLamaran {
         public void setNoHp(String noHp) {
             this.noHp = noHp;
         }
+        
         
 }
