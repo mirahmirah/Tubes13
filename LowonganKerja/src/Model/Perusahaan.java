@@ -48,7 +48,7 @@ public class Perusahaan extends Orang implements Serializable {
         return s;
     }
 
-    public void createLowongan(Date deadline, String nama) {
+    public void createLowongan(String deadline, String nama) {
         daftarLowongan.add(new Lowongan(deadline, nama));
     }
 

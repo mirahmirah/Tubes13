@@ -30,8 +30,8 @@ public class menuLowongan extends javax.swing.JFrame {
         return namaLowonganfield.getText();
     }
 
-    public Date getDeadline() {
-        return (Date) date.getValue();
+    public String getDeadline() {
+        return tgl.getText();
     }
 
     public JButton getAdd() {
@@ -93,9 +93,9 @@ public class menuLowongan extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         namalowongan = new javax.swing.JLabel();
         namaLowonganfield = new javax.swing.JTextField();
-        date = new javax.swing.JSpinner();
         deadline = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
+        tgl = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLowongan = new javax.swing.JTable();
@@ -115,9 +115,6 @@ public class menuLowongan extends javax.swing.JFrame {
                 namaLowonganfieldActionPerformed(evt);
             }
         });
-
-        date.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1461473807766L), new java.util.Date(1451581200000L), new java.util.Date(), java.util.Calendar.DAY_OF_MONTH));
-        date.setEditor(new javax.swing.JSpinner.DateEditor(date, "yyyy-MM-dd"));
 
         deadline.setText("Deadline                    :");
 
@@ -144,7 +141,7 @@ public class menuLowongan extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(deadline)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(date))))
+                            .addComponent(tgl))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,7 +154,7 @@ public class menuLowongan extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deadline, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78)
                 .addComponent(btnAdd)
                 .addContainerGap(69, Short.MAX_VALUE))
@@ -273,7 +270,6 @@ public class menuLowongan extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnLihat;
-    private javax.swing.JSpinner date;
     private javax.swing.JLabel deadline;
     private javax.swing.JLabel idlowongan1;
     private javax.swing.JTextField idlowongan1field;
@@ -286,5 +282,6 @@ public class menuLowongan extends javax.swing.JFrame {
     private javax.swing.JTextField namaLowonganfield;
     private javax.swing.JLabel namalowongan;
     private javax.swing.JTable tblLowongan;
+    private javax.swing.JTextField tgl;
     // End of variables declaration//GEN-END:variables
 }

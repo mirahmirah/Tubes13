@@ -19,19 +19,19 @@ public class Lowongan implements Serializable{
     private List<BerkasLamaran> berkasDiterima=new ArrayList<>();
     private int idLowongan;
     private int indexLowongan;
-    private Date deadline;
+    private String deadline;
     private String nama;
     public Lowongan() {
     
     }
     
-    public Lowongan(int idLowongan,Date deadline,String nama) {
+    public Lowongan(int idLowongan,String deadline,String nama) {
         this.deadline = deadline;
         this.nama=nama;
         this.idLowongan=idLowongan;
     }
     
-    public Lowongan(Date deadline,String nama) {
+    public Lowongan(String deadline,String nama) {
         this.deadline = deadline;
         this.nama=nama;
         this.idLowongan=-1;
@@ -91,7 +91,7 @@ public class Lowongan implements Serializable{
         return indexLowongan;
     }
     
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
     

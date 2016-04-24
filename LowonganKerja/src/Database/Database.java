@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
  * @author adhis
  */
 public class Database {
-    private String server="jdbc:mysql://127.0.0.1/mirahfaugh";
+    private String server="jdbc:mysql://127.0.0.1/pbo";
     private String dbUser ="root";
     private String dbPasswd="";
     Statement statement;
@@ -79,10 +79,10 @@ public class Database {
     }
     public void saveLowongan(Lowongan l,Perusahaan p){
         try{
-            String query="INSERT INTO LOWONGAN(idPerusahaan,deadline,namaLowongan) VALUES"+
-                    "',"+p.getId()+"'"+
-                    "',"+l.getDeadline()+"'"+
-                    "',"+l.getNama()+"')";
+            String query="INSERT INTO LOWONGAN(idPerusahaan,deadline,namaLowongan) VALUES("+
+                    "'"+p.getId()+"',"+
+                    "'"+l.getDeadline()+"',"+
+                    "'"+l.getNama()+"')";
             statement.execute(query,Statement.RETURN_GENERATED_KEYS);
             ResultSet rs=statement.getGeneratedKeys();
             int generateId=-1;
@@ -91,7 +91,7 @@ public class Database {
             }
             l.setIdLowongan(generateId);
         }catch(SQLException ex){
-            System.out.println("Insert Data Gagal");
+            System.out.println("Insert Data Gagal"+ex);
         }
     }
     public void saveBerkasLamaran(Pelamar p,BerkasLamaran b){
@@ -213,7 +213,7 @@ public class Database {
              String query="SELECT * FROM PERUSAHAAN NATURAL JOIN LOWONGAN";
              ResultSet rs=statement.executeQuery(query);
              while(rs.next()){
-                 Lowongan l=new Lowongan(rs.getInt("idLowongan"), rs.getDate("deadline"), rs.getString("namaLowongan"));
+                 Lowongan l=new Lowongan(rs.getInt("idLowongan"), rs.getString("deadline"), rs.getString("namaLowongan"));
                  low.add(l);
              }
              return low;
@@ -229,7 +229,7 @@ public class Database {
                      + "nama = '"+namaPerusahan+"'";
              ResultSet rs=statement.executeQuery(query);
              while(rs.next()){
-                  Lowongan l=new Lowongan(rs.getInt("idLowongan"), rs.getDate("deadline"), rs.getString("namaLowongan"));
+                  Lowongan l=new Lowongan(rs.getInt("idLowongan"), rs.getString("deadline"), rs.getString("namaLowongan"));
                   low.add(l);
              }
              return low;

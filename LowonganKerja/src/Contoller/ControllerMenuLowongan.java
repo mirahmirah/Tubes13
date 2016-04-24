@@ -6,7 +6,7 @@
 package Contoller;
 
 import Database.Database;
-import View.menuLowongans;
+import View.menuLowongan;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -23,12 +23,12 @@ import java.util.List;
  */
 public class ControllerMenuLowongan implements ActionListener{
     private Aplikasi model;
-    private menuLowongans view;
+    private menuLowongan view;
     private Perusahaan p;
     public ControllerMenuLowongan(Aplikasi model,Perusahaan p){
         this.model=model;
         this.p=p;
-        view =new menuLowongans();
+        view =new menuLowongan();
         view.viewAll(model.cariPerusahaan(p.getNama()));
         view.setVisible(true);
         view.addListener(this);
@@ -39,10 +39,10 @@ public class ControllerMenuLowongan implements ActionListener{
         Object menulowongan = ae.getSource();
         if(menulowongan.equals(view.getAdd())){
             String namaLowongan = view.getNamaLowongan();
-            Date deadline = view.getDeadline();
+            String deadline = view.getDeadline();
             p.createLowongan(deadline, namaLowongan);
-            JOptionPane.showMessageDialog(null, "Data berhasil!"+deadline);
             model.createLowongan(p, p.getLowongan(namaLowongan));
+            JOptionPane.showMessageDialog(null, "Data berhasil!"+p.getLowongan(namaLowongan).getNama());
             JOptionPane.showMessageDialog(null, "Data berhasil!");
             new ControllerMenuLowongan(model,p);
         } else if(menulowongan.equals(view.getBtnLihat())){

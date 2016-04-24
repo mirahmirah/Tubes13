@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -62,7 +62,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="deadline" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="date" max="32767" attributes="0"/>
+                                  <Component id="tgl" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -81,7 +81,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="deadline" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="date" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tgl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
@@ -101,16 +101,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namaLowonganfieldActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JSpinner" name="date">
-              <Properties>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="1461473807766" maximum="now" minimum="1451581200000" stepSize="5" type="date"/>
-                </Property>
-                <Property name="editor" type="javax.swing.JComponent" editor="org.netbeans.modules.form.editors.SpinnerEditorEditor">
-                  <SpinnerEditor format="yyyy-MM-dd" type="1"/>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="deadline">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Deadline                    :"/>
@@ -123,6 +113,8 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddMouseClicked"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tgl">
             </Component>
           </SubComponents>
         </Container>
