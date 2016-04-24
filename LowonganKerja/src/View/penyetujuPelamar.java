@@ -33,7 +33,7 @@ public class penyetujuPelamar extends javax.swing.JFrame {
     private void initComponents() {
 
         idlowongan = new javax.swing.JLabel();
-        idlowonganfield = new javax.swing.JTextField();
+        idPelamar = new javax.swing.JTextField();
         btnSetuju = new javax.swing.JButton();
         namajabatanfield = new javax.swing.JTextField();
 
@@ -41,10 +41,10 @@ public class penyetujuPelamar extends javax.swing.JFrame {
 
         idlowongan.setText("Id Pelamar       :");
 
-        idlowonganfield.setText("003");
-        idlowonganfield.addActionListener(new java.awt.event.ActionListener() {
+        idPelamar.setText("003");
+        idPelamar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idlowonganfieldActionPerformed(evt);
+                idPelamarActionPerformed(evt);
             }
         });
 
@@ -71,7 +71,7 @@ public class penyetujuPelamar extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(idlowongan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(idlowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(idPelamar, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -85,7 +85,7 @@ public class penyetujuPelamar extends javax.swing.JFrame {
                 .addComponent(namajabatanfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idlowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idPelamar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idlowongan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(60, 60, 60)
                 .addComponent(btnSetuju)
@@ -99,9 +99,9 @@ public class penyetujuPelamar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_namajabatanfieldActionPerformed
 
-    private void idlowonganfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idlowonganfieldActionPerformed
+    private void idPelamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idPelamarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idlowonganfieldActionPerformed
+    }//GEN-LAST:event_idPelamarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,29 +111,22 @@ public class penyetujuPelamar extends javax.swing.JFrame {
         return btnSetuju;
     }
 
-    public String getIdlowonganfield() {
-        return idlowonganfield.getText();
+    public String getIdPelamar() {
+        return idPelamar.getText();
     }
 
     public String getNamajabatanfield() {
         return namajabatanfield.getText();
     }
 
-    public void setIdlowonganfield(String idlowonganfield) {
-        this.idlowonganfield.setText(idlowonganfield);
-    }
-
-    public void setNamajabatanfield(String namajabatanfield) {
-        this.namajabatanfield.setText(namajabatanfield);
-    }
     public void addListener(ActionListener e){
         btnSetuju.addActionListener(e);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSetuju;
+    private javax.swing.JTextField idPelamar;
     private javax.swing.JLabel idlowongan;
-    private javax.swing.JTextField idlowonganfield;
     private javax.swing.JTextField namajabatanfield;
     // End of variables declaration//GEN-END:variables
 }

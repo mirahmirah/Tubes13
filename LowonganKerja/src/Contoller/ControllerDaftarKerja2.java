@@ -5,35 +5,32 @@
 // */
 //package Contoller;
 //
-//import View.daftarKerja;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
 //import Model.AplikasiConsole;
 //import Model.Pelamar;
-//import Model.Perusahaan;
+//import View.inputIdLowongan;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 //
 ///**
 // *
 // * @author adhis
 // */
-//public class ControllerDaftarKerja implements ActionListener{
+//public class ControllerDaftarKerja2 implements ActionListener{
 //    private AplikasiConsole model;
-//    private daftarKerja view;
+//    private inputIdLowongan view;
 //    private Pelamar p;
-//    private Perusahaan per;
-//    public ControllerDaftarKerja(AplikasiConsole model,Perusahaan per,Pelamar p){
+//    public ControllerDaftarKerja2(AplikasiConsole model,Pelamar p){
 //        this.model=model;
-//        view =new daftarKerja();
+//        view= new inputIdLowongan();
 //        view.setVisible(true);
 //        view.addListener(this);
-//        this.p=p;
-//        this.per=per;
 //    }
 //    public void actionPerformed(ActionEvent e){
 //        Object source=e.getSource();
 //        if(source.equals(view.getBtnDaftar())){
 //            String idLowongan=view.getIdLowongan();
-//            model.daftarKerja(per, p, idLowongan);
+//            String namaPerusahaan=view.getNamaperusahaan();
+//            model.getPerusahaan(namaPerusahaan).getLowongan(idLowongan).addBerkas(p.getBerkas());
 //        }
 //    }
 //}

@@ -5,48 +5,45 @@
  */
 package Contoller;
 
+import Model.Aplikasi;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import lowongankerja.AplikasiConsole;
-import lowongankerja.Orang;
+import Model.Orang;
 import View.menuLogIn;
 import javax.swing.JOptionPane;
-import lowongankerja.Pelamar;
-import lowongankerja.Perusahaan;
+import Model.Pelamar;
+import Model.Perusahaan;
 /**
  *
  * @author adhis
  */
 public class ControllerLogin implements ActionListener {
-        private AplikasiConsole model;
-        private menuLogIn view;
-        private Orang o;    
+        private Aplikasi model;
+        private menuLogIn view;   
         
-        public ControllerLogin(AplikasiConsole model){
+        public ControllerLogin(Aplikasi model){
             this.model=model;
             view= new menuLogIn();
             view.setVisible(true);
             view.addListener(this);
         }
-        public ControllerLogin(AplikasiConsole model,Orang o){
-            this.model=model;
-            this.o=o;
-            view= new menuLogIn();
-            view.setVisible(true);
-            view.addListener(this);
-        }
+//        public ControllerLogin(AplikasiConsole model,Orang o){
+//            this.model=model;
+//            view= new menuLogIn();
+//            view.setVisible(true);
+//            view.addListener(this);
+//        }
         public void actionPerformed(ActionEvent e){
             Object source=e.getSource();
             if(source.equals(view.getBtnLogin())){
                 String username=view.getUsername();
                 String password=view.getPassword();
-                if(model.menuLoginPelamar(username,password)!=null){
-                    Pelamar p=model.menuLoginPelamar(username, password);
-                    view.setVisible(false);
+                if(model.loginPelamar(username,password)!=null){
+                    Pelamar p=model.loginPelamar(username, password);
                     new ControllerMenuCariPerusahaan(model,p);
                     view.dispose();
-                }else if(model.menuLoginPerusahaan(username, password)!=null){
-                    Perusahaan p=model.menuLoginPerusahaan(username, password);
+                }else if(model.loginPerusahaan(username,password)!=null){
+                    Perusahaan p=model.loginPerusahaan(username, password);
                     view.setVisible(false);
                     new ControllerMenuLowongan(model,p);
                     view.dispose();

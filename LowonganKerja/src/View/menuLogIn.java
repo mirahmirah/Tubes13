@@ -75,11 +75,13 @@ public class menuLogIn extends javax.swing.JFrame {
             jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
             jLabel3.setText("Password :");
 
-            password.setText("jPasswordField1");
+            username.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    usernameActionPerformed(evt);
+                }
+            });
 
-            username.setText("jTextField1");
-
-            btnLogin.setText("jButton1");
+            btnLogin.setText("Masuk");
             btnLogin.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     btnLoginActionPerformed(evt);
@@ -129,6 +131,10 @@ public class menuLogIn extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
 
     /**
      * @param args the command line arguments

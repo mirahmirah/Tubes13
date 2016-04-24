@@ -5,10 +5,17 @@
  */
 package View;
 
+import Model.BerkasLamaran;
+import Model.Lowongan;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,30 +23,18 @@ import javax.swing.JTextField;
  */
 public class menuLowongan extends javax.swing.JFrame {
 
-    public String getIdLowongan() {
-        return idLowonganfield.getText();
-    }
-
     public String getNamaLowongan() {
         return namaLowonganfield.getText();
     }
 
-    public String getDeadline() {
-        return deadlinefield.getText();
+    public Date getDeadline() {
+        return (Date) date.getValue();
     }
 
     public JButton getAdd() {
         return btnAdd;
     }
 
-    public void setDeadline(String deadline) {
-        this.deadlinefield.setText(deadline);
-    }
-
-    public void setIdLowongan(String idLowongan) {
-        this.idLowonganfield.setText(idLowongan);
-    }
-    
     public void setNamaLowongan(String namaLowongan) {
         this.namaLowonganfield.setText(namaLowongan);
     }
@@ -55,13 +50,7 @@ public class menuLowongan extends javax.swing.JFrame {
         return btnLihat;
     }
 
-    public JList<String> getListdaftarlowongan() {
-        return listdaftarlowongan;
-    }
 
-    public void setListdaftarlowongan(String[] listdaftarlowongan) {
-        this.listdaftarlowongan.setListData(listdaftarlowongan);
-    }
 
     public JButton getBtnHapus() {
         return btnHapus;
@@ -74,6 +63,15 @@ public class menuLowongan extends javax.swing.JFrame {
     public void setIdlowongan1field(String idlowongan1field) {
         this.idlowongan1field.setText(idlowongan1field);
     }
+    public void viewAll(){
+        
+    }
+    public int getSelected(){
+        return tblLowongan.getSelectedRow();
+    }
+    public void addAdapter(MouseAdapter e){
+        tblLowongan.addMouseListener(e);
+    }
     
 @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -82,18 +80,16 @@ public class menuLowongan extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         buatlowongan = new javax.swing.JPanel();
-        idlowongan = new javax.swing.JLabel();
         namalowongan = new javax.swing.JLabel();
         deadline = new javax.swing.JLabel();
         namaLowonganfield = new javax.swing.JTextField();
-        idLowonganfield = new javax.swing.JTextField();
-        deadlinefield = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
+        date = new javax.swing.JSpinner();
         daftarlowongan = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listdaftarlowongan = new javax.swing.JList<>();
         btnLihat = new javax.swing.JButton();
         jScrollBar1 = new javax.swing.JScrollBar();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblLowongan = new javax.swing.JTable();
         hapuslowongan = new javax.swing.JPanel();
         idlowongan1 = new javax.swing.JLabel();
         idlowongan1field = new javax.swing.JTextField();
@@ -112,8 +108,6 @@ public class menuLowongan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        idlowongan.setText("Id Lowongan              :");
-
         namalowongan.setText("Nama Lowongan        :");
 
         deadline.setText("Deadline                    :");
@@ -126,86 +120,90 @@ public class menuLowongan extends javax.swing.JFrame {
 
         btnAdd.setText("Tambah");
 
+        date.setModel(new javax.swing.SpinnerDateModel());
+
         javax.swing.GroupLayout buatlowonganLayout = new javax.swing.GroupLayout(buatlowongan);
         buatlowongan.setLayout(buatlowonganLayout);
         buatlowonganLayout.setHorizontalGroup(
             buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buatlowonganLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(buatlowonganLayout.createSequentialGroup()
-                        .addComponent(idlowongan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idLowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnAdd)
-                        .addGroup(buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(buatlowonganLayout.createSequentialGroup()
-                                .addComponent(deadline)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(deadlinefield))
-                            .addGroup(buatlowonganLayout.createSequentialGroup()
-                                .addComponent(namalowongan)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(namaLowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGroup(buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAdd)
+                    .addGroup(buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(buatlowonganLayout.createSequentialGroup()
+                            .addComponent(namalowongan)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(namaLowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(buatlowonganLayout.createSequentialGroup()
+                            .addComponent(deadline)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(date))))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
         buatlowonganLayout.setVerticalGroup(
             buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buatlowonganLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idlowongan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(idLowonganfield))
-                .addGap(16, 16, 16)
+                .addGap(40, 40, 40)
                 .addGroup(buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(namalowongan, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(namaLowonganfield))
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addGroup(buatlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deadline, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deadlinefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
                 .addComponent(btnAdd)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("       Buat Lowongan       ", buatlowongan);
 
-        listdaftarlowongan.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(listdaftarlowongan);
-
         btnLihat.setText("Lihat");
+
+        tblLowongan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblLowongan);
 
         javax.swing.GroupLayout daftarlowonganLayout = new javax.swing.GroupLayout(daftarlowongan);
         daftarlowongan.setLayout(daftarlowonganLayout);
         daftarlowonganLayout.setHorizontalGroup(
             daftarlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(daftarlowonganLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, daftarlowonganLayout.createSequentialGroup()
+                .addGroup(daftarlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(daftarlowonganLayout.createSequentialGroup()
+                        .addGap(421, 421, 421)
+                        .addComponent(btnLihat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, daftarlowonganLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(daftarlowonganLayout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(btnLihat)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         daftarlowonganLayout.setVerticalGroup(
             daftarlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(daftarlowonganLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(daftarlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
-                .addGap(28, 28, 28)
-                .addComponent(btnLihat)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGroup(daftarlowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(daftarlowonganLayout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(daftarlowonganLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLihat)))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("       Daftar Lowongan       ", daftarlowongan);
@@ -228,7 +226,7 @@ public class menuLowongan extends javax.swing.JFrame {
                     .addGroup(hapuslowonganLayout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(btnHapus)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
         hapuslowonganLayout.setVerticalGroup(
             hapuslowonganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +237,7 @@ public class menuLowongan extends javax.swing.JFrame {
                     .addComponent(idlowongan1field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(80, 80, 80)
                 .addComponent(btnHapus)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("       Hapus Lowongan      ", hapuslowongan);
@@ -252,7 +250,7 @@ public class menuLowongan extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -269,19 +267,17 @@ public class menuLowongan extends javax.swing.JFrame {
     private javax.swing.JButton btnLihat;
     private javax.swing.JPanel buatlowongan;
     private javax.swing.JPanel daftarlowongan;
+    private javax.swing.JSpinner date;
     private javax.swing.JLabel deadline;
-    private javax.swing.JTextField deadlinefield;
     private javax.swing.JPanel hapuslowongan;
-    private javax.swing.JTextField idLowonganfield;
-    private javax.swing.JLabel idlowongan;
     private javax.swing.JLabel idlowongan1;
     private javax.swing.JTextField idlowongan1field;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JList<String> listdaftarlowongan;
     private javax.swing.JTextField namaLowonganfield;
     private javax.swing.JLabel namalowongan;
+    private javax.swing.JTable tblLowongan;
     // End of variables declaration//GEN-END:variables
 }

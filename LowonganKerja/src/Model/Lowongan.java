@@ -3,32 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lowongankerja;
+package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author adhis
  */
-public class Lowongan {
+public class Lowongan implements Serializable{
     private List<BerkasLamaran> berkasMasuk=new ArrayList<>();
     private List<BerkasLamaran> berkasDiterima=new ArrayList<>();
-    private String idLowongan;
+    private int idLowongan;
     private int indexLowongan;
-    private String deadline;
+    private Date deadline;
     private String nama;
     public Lowongan() {
     
     }
     
-    public Lowongan(String deadline,String nama,String idLowongan) {
+    public Lowongan(int idLowongan,Date deadline,String nama) {
         this.deadline = deadline;
         this.nama=nama;
         this.idLowongan=idLowongan;
     }
+    
+    public Lowongan(Date deadline,String nama) {
+        this.deadline = deadline;
+        this.nama=nama;
+        this.idLowongan=-1;
+    }
 
+    
+    public String[] getBerkasMasuk1(){
+        String[] s=new String[berkasMasuk.size()];
+        for(int i=0;i<berkasMasuk.size();i++){
+            s[i]="Nama  : "+berkasMasuk.get(i).getNama()+"/n"
+                    +"Id Berkas "+berkasMasuk.get(i).getIdBerkas()+"/n"
+                    +"Email :"+berkasMasuk.get(i).getEmail();
+        }
+        return s;
+    }
     public String getNama() {
         return nama;
     }
@@ -43,32 +61,29 @@ public class Lowongan {
         return berkasDiterima.get(index);
     }
     
-    public BerkasLamaran getBerkasMasuk(String idBerkas){
+    public BerkasLamaran getBerkasMasuk(int idBerkas){
         for (int i = 0; i < berkasMasuk.size(); i++) {
-            if(berkasMasuk.get(i).getIdBerkas().equals(idBerkas)){
+            if(berkasMasuk.get(i).getIdBerkas()==idBerkas){
                 return berkasMasuk.get(i);
             }
         }
         return null;
     }
-    public BerkasLamaran getBerkasMasuk(int indexLowongan){
-        return berkasMasuk.get(indexLowongan);
-    }
-    public void pindahBerkas(String idBerkas){
+    public void pindahBerkas(int idBerkas){
         terimaBerkas(getBerkasMasuk(idBerkas));    
         removeBerkas(idBerkas);
     }
     
-    public void removeBerkas(String idBerkas){
+    public void removeBerkas(int idBerkas){
         for (int i=0; i< berkasMasuk.size();i++){
-            if(berkasMasuk.get(i).getIdBerkas().equals(idBerkas)){
+            if(berkasMasuk.get(i).getIdBerkas()==idBerkas){
                 System.out.println("Berkas yang dihapus"+berkasMasuk.get(i).getIdBerkas());
                 berkasMasuk.remove(i);
             }
         }
     }
     
-    public String getIdLowongan(){
+    public int getIdLowongan(){
         return idLowongan;
     }
     
@@ -76,23 +91,19 @@ public class Lowongan {
         return indexLowongan;
     }
     
-    public String getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
     
-    public void setIdLowongan(String idLowongan) {
+    public void setIdLowongan(int idLowongan) {
         this.idLowongan = idLowongan;
+    }
+    public List<BerkasLamaran> getBerkasMasuk() {
+        return berkasMasuk;
     }
     
     public void setIndexLowongan(int indexLowongan) {
         this.indexLowongan = indexLowongan;
     }
-    public void display(){
-        for(int i=0; i < berkasMasuk.size();i++){
-            System.out.println("Indeks Berkas "+getBerkasMasuk(i).getIdBerkas());
-        }
-    }      
-    public List<BerkasLamaran> getBerkasMasuk() {
-        return berkasMasuk;
-    }
+
 }

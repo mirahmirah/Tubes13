@@ -3,17 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lowongankerja;
+package Model;
+
+import java.io.Serializable;
 
 /**
  *
  * @author ISMA
  */
-public class Orang {
+public class Orang implements Serializable{
     private String nama;
     private String email;
     private String noHp;  
-    private String id;
+    private int id;
     private String username;
     private String password;
 
@@ -33,11 +35,11 @@ public class Orang {
         this.username = username;
     }
     
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     
