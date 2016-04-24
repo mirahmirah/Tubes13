@@ -113,7 +113,7 @@ public class Database {
             b.setIdBerkas(generateId);
             JOptionPane.showMessageDialog(null, "Berkas berhasil dibuat");
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Anda Telah Membuat Berkas Sebelumnya");
+            JOptionPane.showMessageDialog(null, "Anda Telah Membuat Berkas Sebelumnya"+ex);
         }
     }
     public void melamar1(Pelamar p,int idLowongan){
@@ -125,7 +125,7 @@ public class Database {
                     "'"+status+"')";
             statement.execute(query);
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Anda Telah Daftar Ke Lowongan ini");
+            System.out.println("salah"+ex);
         }
     }
     public void updateMelamar(int idPelamar,int idLowongan){

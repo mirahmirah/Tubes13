@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author user
  */
-public class Perusahaan extends Orang implements Serializable {
+public class Perusahaan extends Orang {
 
     private List<Lowongan> daftarLowongan = new ArrayList<>();
     private String alamat;

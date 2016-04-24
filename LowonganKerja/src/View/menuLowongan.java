@@ -77,7 +77,7 @@ public class menuLowongan extends javax.swing.JFrame {
     public int getSelected(){
         return tblLowongan.getSelectedRow();
     }
-    public void addMouseListener(MouseAdapter e){
+    public void addAdapter(MouseAdapter e){
         tblLowongan.addMouseListener(e);
     }
     /**

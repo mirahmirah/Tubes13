@@ -11,8 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import Model.Aplikasi;
+import Model.BerkasLamaran;
 import Model.Pelamar;
 import Model.Perusahaan;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +27,7 @@ public class ControllerMenuLowongan implements ActionListener{
     private Aplikasi model;
     private menuLowongan view;
     private Perusahaan p;
+    private int selected;
     public ControllerMenuLowongan(Aplikasi model,Perusahaan p){
         this.model=model;
         this.p=p;
@@ -32,9 +35,13 @@ public class ControllerMenuLowongan implements ActionListener{
         view.viewAll(model.cariPerusahaan(p.getNama()));
         view.setVisible(true);
         view.addListener(this);
-        
+   //     view.addAdapter();
     }
-    @Override
+    public void mouseClicked(MouseEvent e){
+        if(e.getSource().equals(view.getSelected())){
+            selected=view.getSelected();
+        }
+    }
     public void actionPerformed(ActionEvent ae){
         Object menulowongan = ae.getSource();
         if(menulowongan.equals(view.getAdd())){
@@ -47,7 +54,7 @@ public class ControllerMenuLowongan implements ActionListener{
             new ControllerMenuLowongan(model,p);
         } else if(menulowongan.equals(view.getBtnLihat())){
             view.setVisible(false);
-            new ControllerLihatPelamar(model, p);
+            new ControllerLihatPelamar(model, p,selected+1);
             view.dispose();
         }else if(menulowongan.equals(view.getBtnHapus())){
             String idLowongan = view.getIdlowongan1field();
@@ -56,4 +63,5 @@ public class ControllerMenuLowongan implements ActionListener{
         }
         
     }
+
 }

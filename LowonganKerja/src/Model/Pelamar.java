@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author ISMA
  */
-public class Pelamar extends Orang implements Serializable{
+public class Pelamar extends Orang{
 //    private String skill;
     private BerkasLamaran berkas;
  //   private String pengalaman;

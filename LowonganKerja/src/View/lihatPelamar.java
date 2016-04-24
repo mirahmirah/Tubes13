@@ -5,9 +5,12 @@
  */
 package View;
 
+import Model.BerkasLamaran;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -31,86 +34,110 @@ public class lihatPelamar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idlowongan = new javax.swing.JLabel();
-        idlowonganfield = new javax.swing.JTextField();
-        btnLihat = new javax.swing.JButton();
+        btnTerima = new javax.swing.JButton();
         loker = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblBerkas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        idlowongan.setText("Id Lowongan   :");
-
-        idlowonganfield.setText("003");
-
-        btnLihat.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 12)); // NOI18N
-        btnLihat.setText("Lihat");
+        btnTerima.setFont(new java.awt.Font("Lucida Sans Typewriter", 1, 12)); // NOI18N
+        btnTerima.setText("Terima Berkas");
+        btnTerima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTerimaActionPerformed(evt);
+            }
+        });
 
         loker.setFont(new java.awt.Font("Nirmala UI", 0, 18)); // NOI18N
         loker.setText("Lowongan Kerja");
+
+        tblBerkas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblBerkas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(idlowongan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(idlowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnLihat)
-                        .addGap(161, 161, 161))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(loker)
-                        .addGap(128, 128, 128))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(loker))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(btnTerima)))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(loker)
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idlowonganfield, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idlowongan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                .addComponent(btnLihat)
-                .addGap(43, 43, 43))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnTerima)
+                .addContainerGap(301, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnTerimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTerimaActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
-    public JButton getBtnLihat() {
-        return btnLihat;
+    public JButton getBtnTerima() {
+        return btnTerima;
     }
 
-    public String getIdlowonganfield() {
-        return idlowonganfield.getText();
-    }
-
-
-    public void setIdlowonganfield(String idlowonganfield) {
-        this.idlowonganfield.setText(idlowonganfield);
+    public void viewAll(List<BerkasLamaran> berkas){
+        String[] judul={
+            "idBerkas","Nama Pelamar","No Hp","Email","Pendidikan","Pengalaman","Skill"
+        };
+        String[][] data=new String[berkas.size()][7];
+        for(int i=0;i<berkas.size();i++){
+            BerkasLamaran b=berkas.get(i);
+            data[i][0]=String.valueOf(b.getIdBerkas());
+            data[i][1]=String.valueOf(b.getNama());
+            data[i][2]=String.valueOf(b.getNoHp());
+            data[i][3]=String.valueOf(b.getEmail());
+            data[i][4]=String.valueOf(b.getPendidikan());
+            data[i][5]=String.valueOf(b.getPengalaman());
+            data[i][6]=String.valueOf(b.getSkill());
+        }
+        tblBerkas.setModel(new DefaultTableModel(data,judul));
     }
     
     public void addListener(ActionListener e){
-        btnLihat.addActionListener(e);
+        btnTerima.addActionListener(e);
     }
-    
+    public int getSelected(){
+        return tblBerkas.getSelectedRow();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLihat;
-    private javax.swing.JLabel idlowongan;
-    private javax.swing.JTextField idlowonganfield;
+    private javax.swing.JButton btnTerima;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loker;
+    private javax.swing.JTable tblBerkas;
     // End of variables declaration//GEN-END:variables
 }

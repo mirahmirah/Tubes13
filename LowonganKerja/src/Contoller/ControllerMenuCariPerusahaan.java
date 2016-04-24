@@ -15,9 +15,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import Model.Pelamar;
 import Model.Perusahaan;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
-public class ControllerMenuCariPerusahaan implements ActionListener{
+public class ControllerMenuCariPerusahaan extends MouseAdapter implements ActionListener{
     private Aplikasi model;
     private menuCariPerusahaan view;
     private Pelamar p;
@@ -28,7 +29,13 @@ public class ControllerMenuCariPerusahaan implements ActionListener{
         view.setVisible(true);
         view.addListener(this);
         view.viewAll(model.tampilLowongan());
+        view.addAdapter(this);
         this.p=p;
+    }
+    public void mouseClicked(MouseEvent e){
+        if(e.getSource().equals(view.getTableLowongan())){
+            selected=view.getSelected()+1;
+        }
     }
     public void actionPerformed(ActionEvent e){
         Object source=e.getSource();
@@ -48,14 +55,10 @@ public class ControllerMenuCariPerusahaan implements ActionListener{
             p.createBerkas(skill, pengalaman);
             model.createBerkas(p, p.getBerkas());
         }else if(source.equals(view.getBtnDaftar())){
-            model.daftarKerja(p, selected+1);
+            model.daftarKerja(p, selected);
         }
     }
-    public void mouseClicked(MouseEvent e){
-        if(e.getSource().equals(view.getSelected())){
-            selected=view.getSelected();
-        }
-    }
+
     
 }
     
