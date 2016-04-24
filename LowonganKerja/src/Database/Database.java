@@ -140,6 +140,24 @@ public class Database {
             System.out.println("update data gagal");
         }
     }
+    public List<Lowongan> getBerkasDiterima(Pelamar p){
+        List<Lowongan> lowongan = null;
+        Lowongan l = new Lowongan();
+        try{
+            String s="Berkas Diterima";
+            String query="SELECT * FROM MELAMAR NATURAL "
+                    + "JOIN LOWONGAN WHERE status = '"+s+"'";
+            ResultSet rs= statement.executeQuery(query);
+            while(rs.next()){
+                l.setNama(rs.getString(4));
+                lowongan.add(l);
+            }
+            return lowongan;
+        }catch(SQLException ex){
+            System.out.println("berkas tidak diterima");
+            return null;
+        }
+    }
     public Pelamar getPelamar(String username,String password){
         Pelamar p = null;
         try{
