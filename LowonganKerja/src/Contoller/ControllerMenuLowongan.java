@@ -6,7 +6,7 @@
 package Contoller;
 
 import Database.Database;
-import View.menuLowongan;
+import View.menuLowongans;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -23,12 +23,12 @@ import java.util.List;
  */
 public class ControllerMenuLowongan implements ActionListener{
     private Aplikasi model;
-    private menuLowongan view;
+    private menuLowongans view;
     private Perusahaan p;
     public ControllerMenuLowongan(Aplikasi model,Perusahaan p){
         this.model=model;
         this.p=p;
-        view =new menuLowongan();
+        view =new menuLowongans();
         view.viewAll(model.cariPerusahaan(p.getNama()));
         view.setVisible(true);
         view.addListener(this);
