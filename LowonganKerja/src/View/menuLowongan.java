@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -44,6 +45,8 @@ public class menuLowongan extends javax.swing.JFrame {
     
     public void addListener(ActionListener e){
         btnAdd.addActionListener(e);
+        btnLihat.addActionListener(e);
+        btnHapus.addActionListener(e);
     }
 
     public JButton getBtnLihat() {
@@ -61,6 +64,12 @@ public class menuLowongan extends javax.swing.JFrame {
     public void setIdlowongan1field(String idlowongan1field) {
         this.idlowongan1field.setText(idlowongan1field);
     }
+
+    public JTable getTblLowongan() {
+        return tblLowongan;
+    }
+    
+    
     public void viewAll(List<Lowongan> low){
         String[] judul={
             "idLowongan","Nama Lowongan","DeadLine"

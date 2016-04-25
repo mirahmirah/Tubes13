@@ -14,6 +14,7 @@ import Model.Aplikasi;
 import Model.BerkasLamaran;
 import Model.Pelamar;
 import Model.Perusahaan;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Date;
@@ -23,7 +24,7 @@ import java.util.List;
  *
  * @author adhis
  */
-public class ControllerMenuLowongan implements ActionListener{
+public class ControllerMenuLowongan extends MouseAdapter implements ActionListener{
     private Aplikasi model;
     private menuLowongan view;
     private Perusahaan p;
@@ -35,10 +36,11 @@ public class ControllerMenuLowongan implements ActionListener{
         view.viewAll(model.cariPerusahaan(p.getNama()));
         view.setVisible(true);
         view.addListener(this);
-   //     view.addAdapter();
+        view.addAdapter(this);
+        p.setDaftarLowongan(model.cariPerusahaan(p.getNama()));
     }
     public void mouseClicked(MouseEvent e){
-        if(e.getSource().equals(view.getSelected())){
+        if(e.getSource().equals(view.getTblLowongan())){
             selected=view.getSelected();
         }
     }
@@ -49,13 +51,11 @@ public class ControllerMenuLowongan implements ActionListener{
             String deadline = view.getDeadline();
             p.createLowongan(deadline, namaLowongan);
             model.createLowongan(p, p.getLowongan(namaLowongan));
-            JOptionPane.showMessageDialog(null, "Data berhasil!"+p.getLowongan(namaLowongan).getNama());
             JOptionPane.showMessageDialog(null, "Data berhasil!");
             new ControllerMenuLowongan(model,p);
         } else if(menulowongan.equals(view.getBtnLihat())){
             view.setVisible(false);
-            new ControllerLihatPelamar(model, p,selected+1);
-            view.dispose();
+            new ControllerLihatPelamar(model, p,p.getDaftarLowongan().get(selected).getIdLowongan());
         }else if(menulowongan.equals(view.getBtnHapus())){
             String idLowongan = view.getIdlowongan1field();
      //       p.removeLowongan(idLowongan);

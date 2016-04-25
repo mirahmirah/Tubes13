@@ -132,12 +132,11 @@ public class Database {
         try{
             String s="Berkas Diterima";
             String query="UPDATE MELAMAR SET STATUS= '"+
-                    s+"'"
-                    + "WHERE idPelamar = "+idPelamar+"AND"+
-                    "idLowongan = "+idLowongan;
+                    s+"'"+ "WHERE idPelamar = '"+idPelamar+"' AND "+
+                    "idLowongan = '"+idLowongan+"'";
             statement.execute(query);
         }catch(SQLException ex){
-            System.out.println("update data gagal");
+            System.out.println("update data gagal"+ex);
         }
     }
     public Pelamar getPelamar(String username,String password){
@@ -184,7 +183,7 @@ public class Database {
      
      public List<BerkasLamaran> getBerkas(int idLowongan){
          List<BerkasLamaran> berkas=new ArrayList<>();
-         String status="Berkas Masuk";
+         String status="Belum Diterima";
       try{
              String query="SELECT * FROM LOWONGAN NATURAL JOIN MELAMAR NATURAL JOIN PELAMAR NATURAL JOIN BERKASLAMAR WHERE "
                      + "idLowongan = '"+idLowongan+"'"

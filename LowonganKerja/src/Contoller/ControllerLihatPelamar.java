@@ -10,7 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Model.Aplikasi;
 import Model.BerkasLamaran;
+import Model.Lowongan;
 import Model.Perusahaan;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -19,37 +21,42 @@ import javax.swing.JOptionPane;
  *
  * @author user
  */
-class ControllerLihatPelamar implements ActionListener{
+class ControllerLihatPelamar extends MouseAdapter implements ActionListener{
         private Aplikasi model;
         private lihatPelamar view;
         private Perusahaan p;
-        private int idBerkas;
+        private int idLowongan;
         private int idPelamar;
-    public ControllerLihatPelamar(Aplikasi model, Perusahaan p,int idBerkas) {
+        private Lowongan lowongan;
+    public ControllerLihatPelamar(Aplikasi model, Perusahaan p,int idLowongan) {
         this.model = model;
         this.p=p;
-        this.idBerkas=idBerkas;
+        this.idLowongan=idLowongan;
         view = new lihatPelamar();
         view.setVisible(true);
-        view.addListener(this);        
-        view.viewAll(model.getBerkas(idBerkas));
+        view.addListener(this);
+        view.addAdapter(this);
+        view.viewAll(model.getBerkas(idLowongan));
+        lowongan=p.getDaftarLowongan().get(idLowongan);
+        lowongan.setBerkasMasuk(model.getBerkas(idLowongan));
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
+        System.out.println("idPelamar"+idPelamar);
+        System.out.println(""+lowongan.getBerkas(idPelamar).getIdBerkas());
+        System.out.println(""+lowongan.getBerkas(idPelamar).getNama());
         if(source.equals(view.getBtnTerima())){
-            model.pindahBerkas(idPelamar, idBerkas);
+            p.getLowongan(idLowongan).pindahBerkas(lowongan.getBerkas(idPelamar).getIdBerkas());
+            model.pindahBerkas(lowongan.getBerkas(idPelamar).getIdBerkas(), idLowongan);
             JOptionPane.showMessageDialog(null, "Data telah diApprove!");
 //            new ControllerListPelamar(model,idPelamar,idLowongan);
             view.dispose();
         }
     }
     public void MouseClicked(MouseEvent e){
-        if(e.getSource().equals(view.getSelected())){
+        if(e.getSource().equals(view.getTblBerkas())){
             idPelamar=view.getSelected();
         }
-    }
-        
-        
-    
+    }    
 }

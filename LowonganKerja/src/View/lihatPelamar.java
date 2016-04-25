@@ -7,8 +7,10 @@ package View;
 
 import Model.BerkasLamaran;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,6 +23,7 @@ public class lihatPelamar extends javax.swing.JFrame {
     /**
      * Creates new form lihatPelamar
      */
+    private int y;
     public lihatPelamar() {
         initComponents();
     }
@@ -54,15 +57,20 @@ public class lihatPelamar extends javax.swing.JFrame {
 
         tblBerkas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
             }
         ));
+        tblBerkas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBerkasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblBerkas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -75,23 +83,23 @@ public class lihatPelamar extends javax.swing.JFrame {
                         .addGap(253, 253, 253)
                         .addComponent(loker))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(269, 269, 269)
+                        .addComponent(btnTerima))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(btnTerima)))
-                .addContainerGap(242, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(loker)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addComponent(btnTerima)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,6 +108,16 @@ public class lihatPelamar extends javax.swing.JFrame {
     private void btnTerimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerimaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTerimaActionPerformed
+
+    
+    private void tblBerkasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBerkasMouseClicked
+        try{
+            int row=tblBerkas.getSelectedRow();
+            String tableClck=(tblBerkas.getModel().getValueAt(row, 0).toString());
+            int x=Integer.parseInt(tableClck);
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_tblBerkasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -127,9 +145,17 @@ public class lihatPelamar extends javax.swing.JFrame {
         tblBerkas.setModel(new DefaultTableModel(data,judul));
     }
     
+    public void addAdapter(MouseAdapter e){
+        tblBerkas.addMouseListener(e);
+    }
+
+    public JTable getTblBerkas() {
+        return tblBerkas;
+    }
+    
     public void addListener(ActionListener e){
         btnTerima.addActionListener(e);
-    }
+    }    
     public int getSelected(){
         return tblBerkas.getSelectedRow();
     }

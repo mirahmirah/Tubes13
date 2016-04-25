@@ -106,4 +106,11 @@ public class Lowongan{
         this.indexLowongan = indexLowongan;
     }
 
+    public void setBerkasMasuk(List<BerkasLamaran> berkasMasuk) {
+        this.berkasMasuk = berkasMasuk;
+    }
+
+    public BerkasLamaran getBerkas(int i){
+        return berkasMasuk.get(i);
+    }
 }
