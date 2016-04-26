@@ -49,10 +49,8 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         buatberkas = new javax.swing.JPanel();
         skilllabel = new javax.swing.JLabel();
         pengalamanlabel = new javax.swing.JLabel();
-        riwayatpendidikanlabel = new javax.swing.JLabel();
         skill = new javax.swing.JTextField();
         pengalaman = new javax.swing.JTextField();
-        riwayatpendidikan = new javax.swing.JTextField();
         btnBuat = new javax.swing.JButton();
         infolowongankerja = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollBar();
@@ -116,8 +114,6 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
 
         pengalamanlabel.setText("Pengalaman                   :");
 
-        riwayatpendidikanlabel.setText("Riwayat Pendidikan       :");
-
         skill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 skillActionPerformed(evt);
@@ -126,6 +122,11 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
 
         btnBuat.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
         btnBuat.setText("Buat");
+        btnBuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout buatberkasLayout = new javax.swing.GroupLayout(buatberkas);
         buatberkas.setLayout(buatberkasLayout);
@@ -133,19 +134,18 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
             buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buatberkasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(skilllabel)
-                    .addComponent(pengalamanlabel)
-                    .addComponent(riwayatpendidikanlabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
-                .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(pengalaman, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                        .addComponent(skill)
-                        .addComponent(riwayatpendidikan))
+                .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(buatberkasLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(btnBuat, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnBuat, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(buatberkasLayout.createSequentialGroup()
+                        .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(skilllabel)
+                            .addComponent(pengalamanlabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                        .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pengalaman, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(skill))))
                 .addContainerGap(171, Short.MAX_VALUE))
         );
         buatberkasLayout.setVerticalGroup(
@@ -159,13 +159,9 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
                 .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pengalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pengalamanlabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(riwayatpendidikan, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(riwayatpendidikanlabel))
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addComponent(btnBuat)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("         Buat Berkas       ", buatberkas);
@@ -245,6 +241,10 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_skillActionPerformed
 
+    private void btnBuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuatActionPerformed
+
     public JButton getBtnBuat() {
         return btnBuat;
     }
@@ -282,26 +282,14 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         return pengalaman.getText();
     }
 
-    public String getRiwayatpendidikan() {
-        return riwayatpendidikan.getText();
-    }
 
     public String getSkill() {
         return skill.getText();
     }
 
-    public void setNmperusahaan(String nmperusahaan) {
-        this.nmperusahaan.setText(nmperusahaan);
-    }
-
     public void setPengalaman(String pengalaman) {
         this.pengalaman.setText(pengalaman);
     }
-
-    public void setRiwayatpendidikan(String riwayatpendidikan) {
-        this.riwayatpendidikan.setText(riwayatpendidikan);
-    }
-
     public void setSkill(String skill) {
         this.skill.setText(skill);
     }
@@ -331,9 +319,6 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     public int getSelected(){
         return tableLowongan.getSelectedRow();
     }
-    public void addMouseReleased(MouseAdapter e){
-        tableLowongan.addMouseListener(e);
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuat;
@@ -348,8 +333,6 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     private javax.swing.JLabel nmperusahaanlabel;
     private javax.swing.JTextField pengalaman;
     private javax.swing.JLabel pengalamanlabel;
-    private javax.swing.JTextField riwayatpendidikan;
-    private javax.swing.JLabel riwayatpendidikanlabel;
     private javax.swing.JScrollBar scroll;
     private javax.swing.JTextField skill;
     private javax.swing.JLabel skilllabel;

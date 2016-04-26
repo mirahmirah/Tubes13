@@ -53,6 +53,8 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
             String pengalaman=view.getPengalaman();
             p.createBerkas(skill, pengalaman);
             model.createBerkas(p, p.getBerkas());
+            view.setPengalaman("");
+            view.setSkill("");
         }else if(source.equals(view.getBtnDaftar())){
             model.daftarKerja(p, lowongan.get(selected).getIdLowongan());
         }

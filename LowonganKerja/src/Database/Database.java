@@ -227,6 +227,28 @@ public class Database {
              return null;
          }
      }
+     
+     public BerkasLamaran getBerkasPelamar(Pelamar p){
+         BerkasLamaran berkas=null;
+         try{
+             String query="SELECT * FROM BERKASLAMAR WHERE "
+                     + "idPelamar = '"+p.getId()+"'";
+             ResultSet rs=statement.executeQuery(query);
+             while(rs.next()){
+                 berkas.setNama(rs.getString("nama"));
+                 berkas.setEmail(rs.getString("email"));
+                 berkas.setPengalaman(rs.getString("pengalaman"));
+                 berkas.setPendidikan(rs.getString("pendidikan"));
+                 berkas.setIdBerkas(rs.getInt("idPelamar"));
+                 berkas.setNoHp(rs.getString("noHp"));
+                 berkas.setSkill(rs.getString("skill"));
+             }
+             return berkas;
+         }catch(SQLException ex){
+             return null;
+         }
+     }
+     
      public List<Lowongan> getLowongan(String namaPerusahan){
          List<Lowongan> low=new ArrayList<>();
          try{

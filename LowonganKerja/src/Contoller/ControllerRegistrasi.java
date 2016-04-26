@@ -63,6 +63,7 @@ public class ControllerRegistrasi implements ActionListener {
             p.setAlamat(alamat);
             model.RegistrasiPerusahaan(p);
         }
+        view.refresh("");
     }
     
     
