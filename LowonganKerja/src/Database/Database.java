@@ -117,7 +117,7 @@ public class Database {
             b.setIdBerkas(generateId);
             JOptionPane.showMessageDialog(null, "Berkas berhasil dibuat");
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Anda Telah Membuat Berkas Sebelumnya"+ex);
+            JOptionPane.showMessageDialog(null, "Anda Telah Membuat Berkas Sebelumnya");
         }
     }
     public void melamar1(Pelamar p,int idLowongan){
@@ -253,6 +253,7 @@ public class Database {
                      + "idPelamar = '"+p.getId()+"'";
              ResultSet rs=statement.executeQuery(query);
              while(rs.next()){
+                 berkas=new BerkasLamaran();
                  berkas.setNama(rs.getString("nama"));
                  berkas.setEmail(rs.getString("email"));
                  berkas.setPengalaman(rs.getString("pengalaman"));
@@ -296,10 +297,10 @@ public class Database {
              System.out.println("Gagal DELETE"+ex);
          }
      }
-     public void updateBerkas(Pelamar p, BerkasLamaran bl){
+     public void updateBerkas(Pelamar p, String skill,String pengalaman){
         try{
             String query="UPDATE BERKASLAMAR SET PENGALAMAN = '"+
-                    bl.getPengalaman()+"' AND SKILL = '"+bl.getSkill()+"'"+ "WHERE idPelamar = '"+p.getId()+"'";
+                    pengalaman+"', SKILL = '"+skill+"'"+" WHERE idPelamar = '"+p.getId()+"'";
             statement.execute(query);
         }catch(SQLException ex){
             System.out.println("update data gagal"+ex);

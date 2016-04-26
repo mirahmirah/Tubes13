@@ -50,6 +50,7 @@ public class ControllerMenuLowongan extends MouseAdapter implements ActionListen
     }
     public void actionPerformed(ActionEvent ae){
         Object menulowongan = ae.getSource();
+        
         if(menulowongan.equals(view.getAdd())){
             String namaLowongan = view.getNamaLowongan();
             String deadline = view.getDeadline();
@@ -69,7 +70,7 @@ public class ControllerMenuLowongan extends MouseAdapter implements ActionListen
             model.removeLowongan(p, p.getDaftarLowongan().get(selected2).getIdLowongan());
 //            p.removeLowongan(p.getDaftarLowongan().get(selected2).getIdLowongan());
 //            p.setDaftarLowongan(model.cariPerusahaan(p.getNama()));
-//            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
+            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
             view.viewAll2(model.cariPerusahaan(p.getNama()));
             view.viewAll(model.cariPerusahaan(p.getNama()));
         }else if(menulowongan.equals((view.getBtnLogOut()))){

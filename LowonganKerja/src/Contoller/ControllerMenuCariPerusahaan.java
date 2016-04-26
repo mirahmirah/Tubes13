@@ -46,19 +46,28 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
     public void actionPerformed(ActionEvent e){
         Object source=e.getSource();
         if(source.equals(view.getBtnCari())){
-            String namaPerusahaan=view.getNmperusahaan();
-            if(model.cariPerusahaan(namaPerusahaan)!=null){
-                List<Lowongan> low=model.cariPerusahaan(namaPerusahaan);
-                view.setVisible(false);
-                new ControllerHasilPencarianPerusahaan(model,low,p,namaPerusahaan);
+            if(view.getNmperusahaan().equals("")){
+                JOptionPane.showMessageDialog(null, "Data Harus Diisi terlebih dahulu");
+            }
+            else{
+                String namaPerusahaan=view.getNmperusahaan();
+                if(model.cariPerusahaan(namaPerusahaan)!=null){
+                    List<Lowongan> low=model.cariPerusahaan(namaPerusahaan);
+                    view.setVisible(false);
+                    new ControllerHasilPencarianPerusahaan(model,low,p,namaPerusahaan);                
+                }
             }
         }else if(source.equals(view.getBtnBuat())){
-            String skill=view.getSkill();
-            String pengalaman=view.getPengalaman();
-            p.createBerkas(skill, pengalaman);
-            model.createBerkas(p, p.getBerkas());
-            view.setPengalaman("");
-            view.setSkill("");
+            if(view.getSkill().equals("")||view.getPengalaman().equals("")){
+                JOptionPane.showMessageDialog(null, "Data Harus Diisi terlebih dahulu");
+            }else{
+                String skill=view.getSkill();
+                String pengalaman=view.getPengalaman();
+                p.createBerkas(skill, pengalaman);
+                model.createBerkas(p, p.getBerkas());
+                view.setPengalaman("");
+                view.setSkill("");
+            }
         }else if(source.equals(view.getBtnDaftar())){
             model.daftarKerja(p, lowongan.get(selected).getIdLowongan());
         }else if(source.equals(view.getBtnLogOut())){
@@ -72,12 +81,17 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
         }else if(source.equals(view.getBtnLogOut4())){
             new ControllerLogin(model);
         }else if(source.equals(view.getBtnEdit())){
-            String skilledit = view.getSkilledit();
-            String pengalamanedit = view.getPengalamanedit();
-            model.updateBerkas(p,p.getBerkas());
+            if(model.getBerkasPelamar(p)==null){
+                JOptionPane.showMessageDialog(null, "Anda Belum Membuat Berkas");
+            }else if((view.getSkilledit().equals("")) || (view.getPengalamanedit().equals(""))){
+                JOptionPane.showMessageDialog(null, "Data Harus Diisi terlebih dahulu");
+            }else{
+                System.out.println(""+view.getSkilledit());
+                String skilledit = view.getSkilledit();
+                String pengalamanedit = view.getPengalamanedit();
+                model.updateBerkas(p,skilledit,pengalamanedit);
+            }
         }
     }
-
-    
 }
     

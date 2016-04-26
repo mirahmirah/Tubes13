@@ -14,9 +14,12 @@ import java.awt.event.MouseListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -474,7 +477,6 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         btnLogOut3.addActionListener(e);
         btnEdit.addActionListener(e);
         btnLogOut4.addActionListener(e);
-    
     }
     
     public void addAdapter(MouseAdapter e){

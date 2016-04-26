@@ -118,8 +118,8 @@ public class Aplikasi {
             return null;
         }
     }
-    public void updateBerkas(Pelamar p, BerkasLamaran bl){
-        data.updateBerkas(p, bl);
+    public void updateBerkas(Pelamar p,String skill,String pengalaman){
+        data.updateBerkas(p, skill,pengalaman);
     }
     
 //    private Simpan data;
