@@ -72,8 +72,13 @@ public class ControllerMenuLowongan extends MouseAdapter implements ActionListen
 //            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
             view.viewAll2(model.cariPerusahaan(p.getNama()));
             view.viewAll(model.cariPerusahaan(p.getNama()));
+        }else if(menulowongan.equals((view.getBtnLogOut()))){
+            new ControllerLogin(model);
+        }else if(menulowongan.equals((view.getBtnLogOut1()))){
+            new ControllerLogin(model);
+        }else if(menulowongan.equals((view.getBtnLogOut2()))){
+            new ControllerLogin(model);
         }
-        
     }
 
 }

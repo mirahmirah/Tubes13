@@ -57,6 +57,12 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
             view.setSkill("");
         }else if(source.equals(view.getBtnDaftar())){
             model.daftarKerja(p, lowongan.get(selected).getIdLowongan());
+        }else if(source.equals(view.getBtnLogOut())){
+            new ControllerLogin(model);
+        }else if(source.equals(view.getBtnLogOut1())){
+            new ControllerLogin(model);
+        }else if(source.equals(view.getBtnLogOut2())){
+            new ControllerLogin(model);
         }
     }
 

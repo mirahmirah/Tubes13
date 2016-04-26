@@ -53,6 +53,10 @@ class ControllerLihatPelamar extends MouseAdapter implements ActionListener{
             view.dispose();
             view.viewAll(model.getBerkas(idLowongan));
             lowongan.setBerkasMasuk(model.getBerkas(idLowongan));
+        } else if(source.equals(view.getBtnKembali())){
+            new ControllerMenuLowongan(model,p);
+        } else if(source.equals((view.getBtnLogOut()))){
+            new ControllerLogin(model);
         }
     }
     public void MouseClicked(MouseEvent e){
