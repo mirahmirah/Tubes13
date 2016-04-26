@@ -29,14 +29,18 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
         view= new menuCariPerusahaan();
         view.setVisible(true);
         view.addListener(this);
-        view.viewAll(model.tampilLowongan());
+        view.viewAllLowongan(model.tampilLowongan());
+        view.viewAllBerkasDiterima(model.getBerkasDiterima(p));
         view.addAdapter(this);
         this.p=p;
         lowongan=model.tampilLowongan();
     }
     public void mouseClicked(MouseEvent e){
         if(e.getSource().equals(view.getTableLowongan())){
-            selected=view.getSelected();
+            selected=view.getSelectedLowongan();
+        }
+        else if(e.getSource().equals(view.getTableBerkasDiterima())){
+            selected=view.getSelectedBerkasDiterima();
         }
     }
     public void actionPerformed(ActionEvent e){

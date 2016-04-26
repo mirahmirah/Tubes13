@@ -60,6 +60,10 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableLowongan = new javax.swing.JTable();
         btnLogOut2 = new javax.swing.JButton();
+        berkasditerima = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableBerkasDiterima = new javax.swing.JTable();
+        btnLogOut3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,7 +120,7 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
                 .addGroup(cariperusahaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nmperusahaanlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nmperusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79)
                 .addComponent(btnLogOut))
@@ -181,7 +185,7 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
                     .addGroup(buatberkasLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pengalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(btnBuat)
                 .addGap(30, 30, 30)
                 .addComponent(btnLogOut1))
@@ -235,11 +239,52 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
                     .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(120, 120, 120)
                 .addComponent(btnDaftar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(btnLogOut2))
         );
 
         jTabbedPane1.addTab("                        Info Lowongan Kerja                       ", infolowongankerja);
+
+        tableBerkasDiterima.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tableBerkasDiterima);
+
+        btnLogOut3.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
+        btnLogOut3.setText("Log Out");
+
+        javax.swing.GroupLayout berkasditerimaLayout = new javax.swing.GroupLayout(berkasditerima);
+        berkasditerima.setLayout(berkasditerimaLayout);
+        berkasditerimaLayout.setHorizontalGroup(
+            berkasditerimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(berkasditerimaLayout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
+                .addGroup(berkasditerimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, berkasditerimaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, berkasditerimaLayout.createSequentialGroup()
+                        .addComponent(btnLogOut3)
+                        .addContainerGap())))
+        );
+        berkasditerimaLayout.setVerticalGroup(
+            berkasditerimaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, berkasditerimaLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136)
+                .addComponent(btnLogOut3))
+        );
+
+        jTabbedPane1.addTab("Berkas Diterima", berkasditerima);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,7 +294,7 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -342,13 +387,15 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         btnLogOut.addActionListener(e);
         btnLogOut1.addActionListener(e);
         btnLogOut2.addActionListener(e);
+        btnLogOut3.addActionListener(e);
     }
     
     public void addAdapter(MouseAdapter e){
         tableLowongan.addMouseListener(e);
+        tableBerkasDiterima.addMouseListener(e);
     }
     
-    public void viewAll(List<Lowongan> lowongan){
+    public void viewAllLowongan(List<Lowongan> lowongan){
         String [] judul= {
             "idLowongan","Nama Lowongan","DeadLine"
         };
@@ -361,21 +408,47 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         }
         tableLowongan.setModel(new DefaultTableModel(data,judul));
     }
-    public int getSelected(){
+    public void viewAllBerkasDiterima(List<Lowongan> lowongan){
+        String [] judul= {
+            "Nama Lowongan"
+        };
+        String[][] data=new String[lowongan.size()][1];
+        for(int i=0;i<lowongan.size();i++){
+            Lowongan l=lowongan.get(i);
+            data[i][0]=String.valueOf(l.getNama());
+        }
+        tableBerkasDiterima.setModel(new DefaultTableModel(data,judul));
+    }
+    public int getSelectedLowongan(){
         return tableLowongan.getSelectedRow();
     }
+    public int getSelectedBerkasDiterima(){
+        return tableBerkasDiterima.getSelectedRow();
+    }
+    
+    public JButton getBtnLogOut3() {
+        return btnLogOut3;
+    }
+
+    public JTable getTableBerkasDiterima() {
+        return tableBerkasDiterima;
+    }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel berkasditerima;
     private javax.swing.JButton btnBuat;
     private java.awt.Button btnCari;
     private javax.swing.JButton btnDaftar;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnLogOut1;
     private javax.swing.JButton btnLogOut2;
+    private javax.swing.JButton btnLogOut3;
     private javax.swing.JPanel buatberkas;
     private javax.swing.JPanel cariperusahaan;
     private javax.swing.JPanel infolowongankerja;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField nmperusahaan;
     private javax.swing.JLabel nmperusahaanlabel;
@@ -384,6 +457,7 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     private javax.swing.JScrollBar scroll;
     private javax.swing.JTextField skill;
     private javax.swing.JLabel skilllabel;
+    private javax.swing.JTable tableBerkasDiterima;
     private javax.swing.JTable tableLowongan;
     // End of variables declaration//GEN-END:variables
 }

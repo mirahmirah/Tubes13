@@ -50,6 +50,11 @@ public class Lowongan{
     public String getNama() {
         return nama;
     }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    
     
     public void addBerkas(BerkasLamaran b){
         berkasMasuk.add(b);

@@ -109,6 +109,16 @@ public class Aplikasi {
         }
     }
     
+    public List<Lowongan> getBerkasDiterima(Pelamar p){
+        List<Lowongan> loker = new ArrayList<>();
+        loker = data.getBerkasDiterima(pelamar);
+        if(loker!=null){
+            return loker;
+        }else{
+            return null;
+        }
+    }
+    
 //    private Simpan data;
 //    private List<Perusahaan> user;
 //    private List<Pelamar> user2;    
@@ -238,4 +248,5 @@ public class Aplikasi {
 //        data.simpanPerusahaan(user);
 //    }
     
+//tes    
 }

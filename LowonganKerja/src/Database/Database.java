@@ -212,6 +212,24 @@ public class Database {
              return null;
          }
      }
+     public List<Lowongan> getBerkasDiterima(Pelamar p){
+         List<Lowongan> lowongan=new ArrayList<>();
+         String status="Berkas Diterima";
+      try{
+             String query="SELECT * FROM LOWONGAN NATURAL JOIN MELAMAR WHERE "
+                     + "idPelamar = '"+p.getId()+"'"
+                     + "AND status = '"+status+"'";
+             ResultSet rs=statement.executeQuery(query);
+             while(rs.next()){
+                 Lowongan loker =new Lowongan(rs.getInt("idLowongan"), rs.getString("deadline"), rs.getString("namaLowongan"));
+                 lowongan.add(loker);
+             }
+             return lowongan;
+         }catch(SQLException ex){
+             System.out.println("Get data gagal"+ex);
+             return null;
+         }
+     }
      public List<Lowongan> getLowongan(){
          List<Lowongan> low=new ArrayList<>();
          try{
@@ -296,4 +314,5 @@ public class Database {
 //             return false;
 //         }
 //     }
+//tes
 }
