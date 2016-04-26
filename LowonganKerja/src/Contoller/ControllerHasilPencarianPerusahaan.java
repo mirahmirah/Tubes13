@@ -41,6 +41,8 @@ public class ControllerHasilPencarianPerusahaan extends MouseAdapter implements 
         Object source=e.getSource();
         if(source.equals(view.getBtnDaftar())){
             model.daftarKerja(p,lowongan.get(selected).getIdLowongan());
+        }else if(source.equals(view.getBtnKembali())){
+            new ControllerMenuCariPerusahaan(model, p);
         }
     }
     public void mouseClicked(MouseEvent e){
