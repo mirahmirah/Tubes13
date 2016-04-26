@@ -64,6 +64,13 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableBerkasDiterima = new javax.swing.JTable();
         btnLogOut3 = new javax.swing.JButton();
+        editberkas = new javax.swing.JPanel();
+        skilleditlabel = new javax.swing.JLabel();
+        skilledit = new javax.swing.JTextField();
+        pengalamaneditlabel = new javax.swing.JLabel();
+        pengalamanedit = new javax.swing.JTextField();
+        btnEdit = new javax.swing.JButton();
+        btnLogOut4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -286,6 +293,71 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Berkas Diterima", berkasditerima);
 
+        skilleditlabel.setText("Skill                                 :");
+
+        skilledit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skilleditActionPerformed(evt);
+            }
+        });
+
+        pengalamaneditlabel.setText("Pengalaman                   :");
+
+        btnEdit.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+
+        btnLogOut4.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
+        btnLogOut4.setText("Log Out");
+
+        javax.swing.GroupLayout editberkasLayout = new javax.swing.GroupLayout(editberkas);
+        editberkas.setLayout(editberkasLayout);
+        editberkasLayout.setHorizontalGroup(
+            editberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editberkasLayout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addGroup(editberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(editberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(editberkasLayout.createSequentialGroup()
+                            .addComponent(pengalamaneditlabel)
+                            .addGap(18, 18, 18)
+                            .addComponent(pengalamanedit))
+                        .addGroup(editberkasLayout.createSequentialGroup()
+                            .addComponent(skilleditlabel)
+                            .addGap(18, 18, 18)
+                            .addComponent(skilledit, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(215, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editberkasLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnLogOut4))
+        );
+        editberkasLayout.setVerticalGroup(
+            editberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editberkasLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(editberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(skilleditlabel)
+                    .addComponent(skilledit, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(editberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editberkasLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(pengalamaneditlabel))
+                    .addGroup(editberkasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pengalamanedit, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(51, 51, 51)
+                .addComponent(btnEdit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addComponent(btnLogOut4))
+        );
+
+        jTabbedPane1.addTab("Edit Berkas", editberkas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -323,6 +395,14 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void skilleditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skilleditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skilleditActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditActionPerformed
 
     public JButton getBtnBuat() {
         return btnBuat;
@@ -392,6 +472,9 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         btnLogOut1.addActionListener(e);
         btnLogOut2.addActionListener(e);
         btnLogOut3.addActionListener(e);
+        btnEdit.addActionListener(e);
+        btnLogOut4.addActionListener(e);
+    
     }
     
     public void addAdapter(MouseAdapter e){
@@ -437,6 +520,32 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     public JTable getTableBerkasDiterima() {
         return tableBerkasDiterima;
     }
+
+    public JButton getBtnEdit() {
+        return btnEdit;
+    }
+
+    public JButton getBtnLogOut4() {
+        return btnLogOut4;
+    }
+
+    public String getPengalamanedit() {
+        return pengalamanedit.getText();
+    }
+
+    public String getSkilledit() {
+        return skilledit.getText();
+    }
+
+    public void setPengalamanedit(String pengalamanedit) {
+        this.pengalamanedit.setText(pengalamanedit);
+    }
+
+    public void setSkilledit(String skilledit) {
+        this.skilledit.setText(skilledit);
+    }
+    
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -444,12 +553,15 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     private javax.swing.JButton btnBuat;
     private java.awt.Button btnCari;
     private javax.swing.JButton btnDaftar;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnLogOut1;
     private javax.swing.JButton btnLogOut2;
     private javax.swing.JButton btnLogOut3;
+    private javax.swing.JButton btnLogOut4;
     private javax.swing.JPanel buatberkas;
     private javax.swing.JPanel cariperusahaan;
+    private javax.swing.JPanel editberkas;
     private javax.swing.JPanel infolowongankerja;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -457,9 +569,13 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     private javax.swing.JTextField nmperusahaan;
     private javax.swing.JLabel nmperusahaanlabel;
     private javax.swing.JTextField pengalaman;
+    private javax.swing.JTextField pengalamanedit;
+    private javax.swing.JLabel pengalamaneditlabel;
     private javax.swing.JLabel pengalamanlabel;
     private javax.swing.JScrollBar scroll;
     private javax.swing.JTextField skill;
+    private javax.swing.JTextField skilledit;
+    private javax.swing.JLabel skilleditlabel;
     private javax.swing.JLabel skilllabel;
     private javax.swing.JTable tableBerkasDiterima;
     private javax.swing.JTable tableLowongan;

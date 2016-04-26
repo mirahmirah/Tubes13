@@ -67,6 +67,14 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
             new ControllerLogin(model);
         }else if(source.equals(view.getBtnLogOut2())){
             new ControllerLogin(model);
+        }else if(source.equals(view.getBtnLogOut3())){
+            new ControllerLogin(model);
+        }else if(source.equals(view.getBtnLogOut4())){
+            new ControllerLogin(model);
+        }else if(source.equals(view.getBtnEdit())){
+            String skilledit = view.getSkilledit();
+            String pengalamanedit = view.getPengalamanedit();
+            model.updateBerkas(p,p.getBerkas());
         }
     }
 

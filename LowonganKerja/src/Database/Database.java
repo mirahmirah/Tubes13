@@ -296,6 +296,15 @@ public class Database {
              System.out.println("Gagal DELETE"+ex);
          }
      }
+     public void updateBerkas(Pelamar p, BerkasLamaran bl){
+        try{
+            String query="UPDATE BERKASLAMAR SET PENGALAMAN = '"+
+                    bl.getPengalaman()+"' AND SKILL = '"+bl.getSkill()+"'"+ "WHERE idPelamar = '"+p.getId()+"'";
+            statement.execute(query);
+        }catch(SQLException ex){
+            System.out.println("update data gagal"+ex);
+        }
+    }
 //     public boolean cekDaftar(Pelamar p){
 //         int id=0;
 //         try{

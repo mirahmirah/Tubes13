@@ -118,6 +118,9 @@ public class Aplikasi {
             return null;
         }
     }
+    public void updateBerkas(Pelamar p, BerkasLamaran bl){
+        data.updateBerkas(p, bl);
+    }
     
 //    private Simpan data;
 //    private List<Perusahaan> user;
