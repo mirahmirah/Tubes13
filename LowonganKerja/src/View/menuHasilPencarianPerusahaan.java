@@ -41,6 +41,7 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
         btnDaftar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDaftarLowongan = new javax.swing.JTable();
+        btnKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,32 +66,44 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblDaftarLowongan);
 
+        btnKembali.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
+        btnKembali.setText("Kembali");
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembaliActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnDaftar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(250, 250, 250)
-                            .addComponent(nmperusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(178, 178, 178)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addGap(250, 250, 250)
+                .addComponent(nmperusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(224, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnKembali)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(107, 107, 107))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(nmperusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(btnDaftar)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnKembali)
+                    .addComponent(btnDaftar))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         pack();
@@ -99,6 +112,10 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
     private void nmperusahaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nmperusahaanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nmperusahaanActionPerformed
+
+    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,6 +128,9 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
     public JButton getBtnDaftar(){
         return btnDaftar;
     }
+    public JButton getBtnKembali(){
+        return btnKembali;
+    }
 
     public void addAdapter(MouseAdapter e){
         tblDaftarLowongan.addMouseListener(e);
@@ -121,6 +141,7 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
     }
     public void addListener(ActionListener e){
         btnDaftar.addActionListener(e);
+        btnKembali.addActionListener(e);
     }
     public void viewAll(List<Lowongan> lowongan){
         String [] judul= {
@@ -147,6 +168,7 @@ public class menuHasilPencarianPerusahaan extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDaftar;
+    private javax.swing.JButton btnKembali;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField nmperusahaan;
     private javax.swing.JTable tblDaftarLowongan;
