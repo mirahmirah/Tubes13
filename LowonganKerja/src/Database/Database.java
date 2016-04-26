@@ -140,24 +140,6 @@ public class Database {
             System.out.println("update data gagal");
         }
     }
-    public List<Lowongan> getBerkasDiterima(Pelamar p){
-        List<Lowongan> lowongan = null;
-        Lowongan l = new Lowongan();
-        try{
-            String s="Berkas Diterima";
-            String query="SELECT * FROM MELAMAR NATURAL "
-                    + "JOIN LOWONGAN WHERE status = '"+s+"'";
-            ResultSet rs= statement.executeQuery(query);
-            while(rs.next()){
-                l.setNama(rs.getString(4));
-                lowongan.add(l);
-            }
-            return lowongan;
-        }catch(SQLException ex){
-            System.out.println("berkas tidak diterima");
-            return null;
-        }
-    }
     public Pelamar getPelamar(String username,String password){
         Pelamar p = null;
         try{
@@ -225,6 +207,24 @@ public class Database {
              return null;
          }
      }
+     public List<Lowongan> getBerkasDiterima(Pelamar p){
+         List<Lowongan> lowongan=new ArrayList<>();
+         String status="Berkas Diterima";
+      try{
+             String query="SELECT * FROM LOWONGAN NATURAL JOIN MELAMAR WHERE "
+                     + "idPelamar = '"+p.getId()+"'"
+                     + "AND status = '"+status+"'";
+             ResultSet rs=statement.executeQuery(query);
+             while(rs.next()){
+                 Lowongan loker =new Lowongan(rs.getInt("idLowongan"), rs.getString("deadline"), rs.getString("namaLowongan"));
+                 lowongan.add(loker);
+             }
+             return lowongan;
+         }catch(SQLException ex){
+             System.out.println("Get data gagal"+ex);
+             return null;
+         }
+     }
      public List<Lowongan> getLowongan(){
          List<Lowongan> low=new ArrayList<>();
          try{
@@ -237,6 +237,26 @@ public class Database {
              return low;
          }catch(SQLException ex){
              System.out.println("Get data gagal");
+             return null;
+         }
+     }
+      public BerkasLamaran getBerkasPelamar(Pelamar p){
+         BerkasLamaran berkas=null;
+         try{
+             String query="SELECT * FROM BERKASLAMAR WHERE "
+                     + "idPelamar = '"+p.getId()+"'";
+             ResultSet rs=statement.executeQuery(query);
+             while(rs.next()){
+                 berkas.setNama(rs.getString("nama"));
+                 berkas.setEmail(rs.getString("email"));
+                 berkas.setPengalaman(rs.getString("pengalaman"));
+                 berkas.setPendidikan(rs.getString("pendidikan"));
+                 berkas.setIdBerkas(rs.getInt("idPelamar"));
+                 berkas.setNoHp(rs.getString("noHp"));
+                 berkas.setSkill(rs.getString("skill"));
+             }
+             return berkas;
+         }catch(SQLException ex){
              return null;
          }
      }

@@ -99,6 +99,26 @@ public class Aplikasi {
         }
     }
     
+    public BerkasLamaran getBerkasPelamar(Pelamar p){
+        BerkasLamaran berkas;
+        berkas=data.getBerkasPelamar(p);
+        if(berkas!=null){
+            return berkas;
+        }else{
+            return null;
+        }
+    }
+    
+    public List<Lowongan> getBerkasDiterima(Pelamar p){
+        List<Lowongan> loker = new ArrayList<>();
+        loker = data.getBerkasDiterima(pelamar);
+        if(loker!=null){
+            return loker;
+        }else{
+            return null;
+        }
+    }
+    
 //    private Simpan data;
 //    private List<Perusahaan> user;
 //    private List<Pelamar> user2;    
