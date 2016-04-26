@@ -64,8 +64,10 @@ public class ControllerRegistrasi implements ActionListener {
             model.RegistrasiPerusahaan(p);
         } else if (source.equals(view.getBtnKembali())){
             new ControllerLogin(model);
+            view.dispose();
         } else if (source.equals(view.getBtnKembali1())){
             new ControllerLogin(model);
+            view.dispose();
         }
         view.refresh("");
     }
