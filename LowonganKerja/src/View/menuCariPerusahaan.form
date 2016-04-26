@@ -144,11 +144,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btnKembali" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="348" max="-2" attributes="0"/>
-                              <Component id="btnBuat" min="-2" pref="66" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnBuat" min="-2" pref="66" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="pengalamanlabel" min="-2" max="-2" attributes="0"/>
@@ -189,10 +185,7 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="118" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnBuat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnKembali" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btnBuat" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="btnLogOut1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -226,17 +219,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuatActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnKembali">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Microsoft YaHei Light" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Kembali"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKembaliActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnLogOut1">

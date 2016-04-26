@@ -53,7 +53,6 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         skill = new javax.swing.JTextField();
         pengalaman = new javax.swing.JTextField();
         btnBuat = new javax.swing.JButton();
-        btnKembali = new javax.swing.JButton();
         btnLogOut1 = new javax.swing.JButton();
         infolowongankerja = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollBar();
@@ -143,14 +142,6 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
             }
         });
 
-        btnKembali.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
-        btnKembali.setText("Kembali");
-        btnKembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnKembaliActionPerformed(evt);
-            }
-        });
-
         btnLogOut1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
         btnLogOut1.setText("Log Out");
 
@@ -161,10 +152,7 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
             .addGroup(buatberkasLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(buatberkasLayout.createSequentialGroup()
-                        .addComponent(btnKembali)
-                        .addGap(348, 348, 348)
-                        .addComponent(btnBuat, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuat, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(buatberkasLayout.createSequentialGroup()
                             .addComponent(pengalamanlabel)
@@ -194,9 +182,7 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pengalaman, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                .addGroup(buatberkasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuat)
-                    .addComponent(btnKembali))
+                .addComponent(btnBuat)
                 .addGap(30, 30, 30)
                 .addComponent(btnLogOut1))
         );
@@ -284,10 +270,6 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     private void btnBuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuatActionPerformed
-
-    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnKembaliActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
@@ -387,7 +369,6 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
     private javax.swing.JButton btnBuat;
     private java.awt.Button btnCari;
     private javax.swing.JButton btnDaftar;
-    private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnLogOut1;
     private javax.swing.JButton btnLogOut2;
