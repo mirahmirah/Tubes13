@@ -53,7 +53,9 @@ public class Database {
                 generatedId=rs.getInt(1);
             }
             p.setId(generatedId);
+            JOptionPane.showMessageDialog(null, "Selamat, Anda Terdaftar");
         }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Anda telah terdaftar sebelumnya");
             System.out.println("Semua data harus terisi"+ex.toString());
         }
     }
@@ -73,8 +75,10 @@ public class Database {
                 generateId=rs.getInt(1);
             }
             p.setId(generateId);
+            JOptionPane.showMessageDialog(null, "Selamat, Anda Terdaftar");
         }catch(SQLException ex){
             System.out.println("Semua data harus terisi"+ex.toString());
+            JOptionPane.showMessageDialog(null, "Anda telah terdaftar sebelumnya");
         }
     }
     public void saveLowongan(Lowongan l,Perusahaan p){
@@ -124,20 +128,21 @@ public class Database {
                     "'"+idLowongan+"',"+
                     "'"+status+"')";
             statement.execute(query);
+            JOptionPane.showMessageDialog(null, "Anda berhasil mendaftar!");
         }catch(SQLException ex){
             System.out.println("salah"+ex);
+             JOptionPane.showMessageDialog(null, "Anda telah mendaftar di Lowongan ini sebelumnya!");
         }
     }
     public void updateMelamar(int idPelamar,int idLowongan){
         try{
             String s="Berkas Diterima";
             String query="UPDATE MELAMAR SET STATUS= '"+
-                    s+"'"
-                    + "WHERE idPelamar = "+idPelamar+"AND"+
-                    "idLowongan = "+idLowongan;
+                    s+"'"+ "WHERE idPelamar = '"+idPelamar+"' AND "+
+                    "idLowongan = '"+idLowongan+"'";
             statement.execute(query);
         }catch(SQLException ex){
-            System.out.println("update data gagal");
+            System.out.println("update data gagal"+ex);
         }
     }
     public Pelamar getPelamar(String username,String password){
@@ -184,7 +189,7 @@ public class Database {
      
      public List<BerkasLamaran> getBerkas(int idLowongan){
          List<BerkasLamaran> berkas=new ArrayList<>();
-         String status="Berkas Masuk";
+         String status="Belum Diterima";
       try{
              String query="SELECT * FROM LOWONGAN NATURAL JOIN MELAMAR NATURAL JOIN PELAMAR NATURAL JOIN BERKASLAMAR WHERE "
                      + "idLowongan = '"+idLowongan+"'"
@@ -240,7 +245,8 @@ public class Database {
              return null;
          }
      }
-      public BerkasLamaran getBerkasPelamar(Pelamar p){
+     
+     public BerkasLamaran getBerkasPelamar(Pelamar p){
          BerkasLamaran berkas=null;
          try{
              String query="SELECT * FROM BERKASLAMAR WHERE "
@@ -260,6 +266,7 @@ public class Database {
              return null;
          }
      }
+     
      public List<Lowongan> getLowongan(String namaPerusahan){
          List<Lowongan> low=new ArrayList<>();
          try{
@@ -282,7 +289,10 @@ public class Database {
                      + " idLowongan = '"+idLowongan+"'"
                      + "AND idPerusahaan = '"+p.getId()+"'";
              statement.execute(query);
+             p.removeLowongan(idLowongan);
+              JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
          }catch(SQLException ex){
+              JOptionPane.showMessageDialog(null, "Data tidak bisa di hapus!");
              System.out.println("Gagal DELETE"+ex);
          }
      }
@@ -304,4 +314,5 @@ public class Database {
 //             return false;
 //         }
 //     }
+//tes
 }

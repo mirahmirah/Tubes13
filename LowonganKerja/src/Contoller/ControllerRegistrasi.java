@@ -62,7 +62,12 @@ public class ControllerRegistrasi implements ActionListener {
             p.setNoHp(noHp1);
             p.setAlamat(alamat);
             model.RegistrasiPerusahaan(p);
+        } else if (source.equals(view.getBtnKembali())){
+            new ControllerLogin(model);
+        } else if (source.equals(view.getBtnKembali1())){
+            new ControllerLogin(model);
         }
+        view.refresh("");
     }
     
     

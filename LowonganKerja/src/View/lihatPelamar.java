@@ -7,8 +7,10 @@ package View;
 
 import Model.BerkasLamaran;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,6 +23,7 @@ public class lihatPelamar extends javax.swing.JFrame {
     /**
      * Creates new form lihatPelamar
      */
+    private int y;
     public lihatPelamar() {
         initComponents();
     }
@@ -34,10 +37,21 @@ public class lihatPelamar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnKembali1 = new javax.swing.JButton();
         btnTerima = new javax.swing.JButton();
         loker = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBerkas = new javax.swing.JTable();
+        btnKembali = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
+
+        btnKembali1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
+        btnKembali1.setText("Kembali");
+        btnKembali1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembali1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,44 +68,72 @@ public class lihatPelamar extends javax.swing.JFrame {
 
         tblBerkas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
             }
         ));
+        tblBerkas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBerkasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblBerkas);
+
+        btnKembali.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
+        btnKembali.setText("Kembali");
+        btnKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembaliActionPerformed(evt);
+            }
+        });
+
+        btnLogOut.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 12)); // NOI18N
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(113, 113, 113)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addComponent(loker))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(btnTerima)))
-                .addContainerGap(242, Short.MAX_VALUE))
+                        .addComponent(btnKembali)
+                        .addGap(261, 261, 261)
+                        .addComponent(btnTerima))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(284, 284, 284)
+                .addComponent(loker)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogOut))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(loker)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnTerima)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(loker))
+                    .addComponent(btnLogOut))
+                .addGap(70, 70, 70)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTerima)
+                    .addComponent(btnKembali))
+                .addGap(130, 130, 130))
         );
 
         pack();
@@ -101,12 +143,40 @@ public class lihatPelamar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTerimaActionPerformed
 
+    
+    private void tblBerkasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBerkasMouseClicked
+        try{
+            int row=tblBerkas.getSelectedRow();
+            String tableClck=(tblBerkas.getModel().getValueAt(row, 0).toString());
+            int x=Integer.parseInt(tableClck);
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_tblBerkasMouseClicked
+
+    private void btnKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKembaliActionPerformed
+
+    private void btnKembali1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembali1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKembali1ActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     public JButton getBtnTerima() {
         return btnTerima;
+    }
+    public JButton getBtnKembali(){
+        return btnKembali;
+    }
+    public JButton getBtnLogOut(){
+        return btnLogOut;
     }
 
     public void viewAll(List<BerkasLamaran> berkas){
@@ -127,14 +197,27 @@ public class lihatPelamar extends javax.swing.JFrame {
         tblBerkas.setModel(new DefaultTableModel(data,judul));
     }
     
+    public void addAdapter(MouseAdapter e){
+        tblBerkas.addMouseListener(e);
+    }
+
+    public JTable getTblBerkas() {
+        return tblBerkas;
+    }
+    
     public void addListener(ActionListener e){
         btnTerima.addActionListener(e);
-    }
+        btnKembali.addActionListener(e);
+        btnLogOut.addActionListener(e);
+    }    
     public int getSelected(){
         return tblBerkas.getSelectedRow();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKembali;
+    private javax.swing.JButton btnKembali1;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnTerima;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loker;

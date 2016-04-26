@@ -248,4 +248,5 @@ public class Aplikasi {
 //        data.simpanPerusahaan(user);
 //    }
     
+//tes    
 }
