@@ -111,7 +111,7 @@ public class Aplikasi {
     
     public List<Lowongan> getBerkasDiterima(Pelamar p){
         List<Lowongan> loker = new ArrayList<>();
-        loker = data.getBerkasDiterima(pelamar);
+        loker = data.getBerkasDiterima(p);
         if(loker!=null){
             return loker;
         }else{
