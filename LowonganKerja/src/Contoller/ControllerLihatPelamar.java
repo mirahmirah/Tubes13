@@ -37,7 +37,7 @@ class ControllerLihatPelamar extends MouseAdapter implements ActionListener{
         view.addListener(this);
         view.addAdapter(this);
         view.viewAll(model.getBerkas(idLowongan));
-        lowongan=p.getDaftarLowongan().get(idLowongan);
+        lowongan=p.getLowongan(idLowongan);
         lowongan.setBerkasMasuk(model.getBerkas(idLowongan));
     }
     @Override
@@ -50,8 +50,9 @@ class ControllerLihatPelamar extends MouseAdapter implements ActionListener{
             p.getLowongan(idLowongan).pindahBerkas(lowongan.getBerkas(idPelamar).getIdBerkas());
             model.pindahBerkas(lowongan.getBerkas(idPelamar).getIdBerkas(), idLowongan);
             JOptionPane.showMessageDialog(null, "Data telah diApprove!");
-//            new ControllerListPelamar(model,idPelamar,idLowongan);
             view.dispose();
+            view.viewAll(model.getBerkas(idLowongan));
+            lowongan.setBerkasMasuk(model.getBerkas(idLowongan));
         }
     }
     public void MouseClicked(MouseEvent e){

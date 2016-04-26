@@ -49,6 +49,9 @@ public class ControllerLogin implements ActionListener {
                 }else{
                     JOptionPane.showMessageDialog(null, "Invalid Password/Username");
                 }
+            }else if(source.equals(view.getBtnRegistrasi())){
+                new ControllerRegistrasi(model);
+                view.dispose();
             }
         }
         

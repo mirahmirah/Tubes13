@@ -29,11 +29,13 @@ public class ControllerMenuLowongan extends MouseAdapter implements ActionListen
     private menuLowongan view;
     private Perusahaan p;
     private int selected;
+    private int selected2;
     public ControllerMenuLowongan(Aplikasi model,Perusahaan p){
         this.model=model;
         this.p=p;
         view =new menuLowongan();
         view.viewAll(model.cariPerusahaan(p.getNama()));
+        view.viewAll2(model.cariPerusahaan(p.getNama()));
         view.setVisible(true);
         view.addListener(this);
         view.addAdapter(this);
@@ -42,6 +44,8 @@ public class ControllerMenuLowongan extends MouseAdapter implements ActionListen
     public void mouseClicked(MouseEvent e){
         if(e.getSource().equals(view.getTblLowongan())){
             selected=view.getSelected();
+        }else if(e.getSource().equals(view.getTblHapus())){
+            selected2=view.getSelected2();
         }
     }
     public void actionPerformed(ActionEvent ae){
@@ -52,14 +56,22 @@ public class ControllerMenuLowongan extends MouseAdapter implements ActionListen
             p.createLowongan(deadline, namaLowongan);
             model.createLowongan(p, p.getLowongan(namaLowongan));
             JOptionPane.showMessageDialog(null, "Data berhasil!");
-            new ControllerMenuLowongan(model,p);
+//            p.setDaftarLowongan(model.cariPerusahaan(p.getNama()));
+            view.viewAll(model.cariPerusahaan(p.getNama()));
+            view.viewAll2(model.cariPerusahaan(p.getNama()));            
+            view.setNamaLowongan("");
+            view.setTanggal("");
         } else if(menulowongan.equals(view.getBtnLihat())){
             view.setVisible(false);
+            System.out.println(""+p.getDaftarLowongan().size());
             new ControllerLihatPelamar(model, p,p.getDaftarLowongan().get(selected).getIdLowongan());
         }else if(menulowongan.equals(view.getBtnHapus())){
-            String idLowongan = view.getIdlowongan1field();
-     //       p.removeLowongan(idLowongan);
-            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
+            model.removeLowongan(p, p.getDaftarLowongan().get(selected2).getIdLowongan());
+//            p.removeLowongan(p.getDaftarLowongan().get(selected2).getIdLowongan());
+//            p.setDaftarLowongan(model.cariPerusahaan(p.getNama()));
+//            JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
+            view.viewAll2(model.cariPerusahaan(p.getNama()));
+            view.viewAll(model.cariPerusahaan(p.getNama()));
         }
         
     }

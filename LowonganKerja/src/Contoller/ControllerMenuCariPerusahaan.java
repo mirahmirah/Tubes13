@@ -23,6 +23,7 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
     private menuCariPerusahaan view;
     private Pelamar p;
     private int selected;
+    private List<Lowongan> lowongan;
     public ControllerMenuCariPerusahaan(Aplikasi model,Pelamar p){
         this.model=model;
         view= new menuCariPerusahaan();
@@ -31,10 +32,11 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
         view.viewAll(model.tampilLowongan());
         view.addAdapter(this);
         this.p=p;
+        lowongan=model.tampilLowongan();
     }
     public void mouseClicked(MouseEvent e){
         if(e.getSource().equals(view.getTableLowongan())){
-            selected=view.getSelected()+1;
+            selected=view.getSelected();
         }
     }
     public void actionPerformed(ActionEvent e){
@@ -44,18 +46,15 @@ public class ControllerMenuCariPerusahaan extends MouseAdapter implements Action
             if(model.cariPerusahaan(namaPerusahaan)!=null){
                 List<Lowongan> low=model.cariPerusahaan(namaPerusahaan);
                 view.setVisible(false);
-                new ControllerHasilPencarianPerusahaan(model,low,p);
+                new ControllerHasilPencarianPerusahaan(model,low,p,namaPerusahaan);
             }
         }else if(source.equals(view.getBtnBuat())){
             String skill=view.getSkill();
             String pengalaman=view.getPengalaman();
-//            BerkasLamaran b=new BerkasLamaran();
-//            b.setSkill(skill);
-//            b.setPendidikan(pengalaman);
             p.createBerkas(skill, pengalaman);
             model.createBerkas(p, p.getBerkas());
         }else if(source.equals(view.getBtnDaftar())){
-            model.daftarKerja(p, selected);
+            model.daftarKerja(p, lowongan.get(selected).getIdLowongan());
         }
     }
 

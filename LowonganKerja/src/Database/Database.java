@@ -53,7 +53,9 @@ public class Database {
                 generatedId=rs.getInt(1);
             }
             p.setId(generatedId);
+            JOptionPane.showMessageDialog(null, "Selamat, Anda Terdaftar");
         }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Anda telah terdaftar sebelumnya");
             System.out.println("Semua data harus terisi"+ex.toString());
         }
     }
@@ -73,8 +75,10 @@ public class Database {
                 generateId=rs.getInt(1);
             }
             p.setId(generateId);
+            JOptionPane.showMessageDialog(null, "Selamat, Anda Terdaftar");
         }catch(SQLException ex){
             System.out.println("Semua data harus terisi"+ex.toString());
+            JOptionPane.showMessageDialog(null, "Anda telah terdaftar sebelumnya");
         }
     }
     public void saveLowongan(Lowongan l,Perusahaan p){
@@ -124,8 +128,10 @@ public class Database {
                     "'"+idLowongan+"',"+
                     "'"+status+"')";
             statement.execute(query);
+            JOptionPane.showMessageDialog(null, "Anda berhasil mendaftar!");
         }catch(SQLException ex){
             System.out.println("salah"+ex);
+             JOptionPane.showMessageDialog(null, "Anda telah mendaftar di Lowongan ini sebelumnya!");
         }
     }
     public void updateMelamar(int idPelamar,int idLowongan){
@@ -243,7 +249,10 @@ public class Database {
                      + " idLowongan = '"+idLowongan+"'"
                      + "AND idPerusahaan = '"+p.getId()+"'";
              statement.execute(query);
+             p.removeLowongan(idLowongan);
+              JOptionPane.showMessageDialog(null, "Data berhasil dihapus!");
          }catch(SQLException ex){
+              JOptionPane.showMessageDialog(null, "Data tidak bisa di hapus!");
              System.out.println("Gagal DELETE"+ex);
          }
      }

@@ -145,14 +145,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="nama">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="username">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -175,19 +169,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="noHp">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField5"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="email">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField4"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="password">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnDaftar">
               <Properties>
@@ -200,9 +185,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="pendidikan">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pendidikanActionPerformed"/>
               </Events>
@@ -313,9 +295,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="nama1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -323,14 +302,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="username1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="password1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
@@ -343,14 +316,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="email1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField4"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="noHp1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField5"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
@@ -371,9 +338,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="alamat">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField6"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

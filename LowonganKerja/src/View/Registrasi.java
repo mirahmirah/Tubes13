@@ -127,12 +127,24 @@ public class Registrasi extends javax.swing.JFrame {
     
     public void addListener(ActionListener e){
         btnDaftar.addActionListener(e);
-    }
-    
-    public void addListener1(ActionListener e){
         btnDaftar1.addActionListener(e);
     }
-
+    
+    public void refresh(String s){
+        nama.setText(s);
+        nama1.setText(s);
+        alamat.setText(s);
+        username.setText(s);
+        username1.setText(s);
+        password.setText(s);
+        password1.setText(s);
+        noHp.setText(s);
+        noHp1.setText(s);
+        pendidikan.setText(s);
+        email.setText(s);
+        email1.setText(s);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -180,10 +192,6 @@ public class Registrasi extends javax.swing.JFrame {
 
         jLabel3.setText("Nama");
 
-        nama.setText("jTextField1");
-
-        username.setText("jTextField1");
-
         jLabel2.setText("Username");
 
         jLabel4.setText("Password");
@@ -192,17 +200,10 @@ public class Registrasi extends javax.swing.JFrame {
 
         jLabel6.setText("No. HP");
 
-        noHp.setText("jTextField5");
-
-        email.setText("jTextField4");
-
-        password.setText("jPasswordField1");
-
         btnDaftar.setText("Daftar");
 
         jLabel14.setText("Pendidikan");
 
-        pendidikan.setText("jTextField1");
         pendidikan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pendidikanActionPerformed(evt);
@@ -283,21 +284,11 @@ public class Registrasi extends javax.swing.JFrame {
 
         jLabel8.setText("Nama");
 
-        nama1.setText("jTextField1");
-
         jLabel9.setText("Username");
-
-        username1.setText("jTextField1");
-
-        password1.setText("jPasswordField1");
 
         jLabel10.setText("Password");
 
         jLabel11.setText("Email");
-
-        email1.setText("jTextField4");
-
-        noHp1.setText("jTextField5");
 
         jLabel12.setText("No. HP");
 
@@ -309,8 +300,6 @@ public class Registrasi extends javax.swing.JFrame {
         });
 
         jLabel13.setText("Alamat");
-
-        alamat.setText("jTextField6");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

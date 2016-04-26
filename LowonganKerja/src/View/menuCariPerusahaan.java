@@ -329,7 +329,7 @@ public class menuCariPerusahaan extends javax.swing.JFrame {
         tableLowongan.setModel(new DefaultTableModel(data,judul));
     }
     public int getSelected(){
-        return tableLowongan.getSelectedColumn();
+        return tableLowongan.getSelectedRow();
     }
     public void addMouseReleased(MouseAdapter e){
         tableLowongan.addMouseListener(e);

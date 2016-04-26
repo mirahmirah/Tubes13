@@ -57,18 +57,26 @@ public class menuLowongan extends javax.swing.JFrame {
         return btnHapus;
     }
 
-    public String getIdlowongan1field() {
-        return idlowongan1field.getText();
-    }
-
-    public void setIdlowongan1field(String idlowongan1field) {
-        this.idlowongan1field.setText(idlowongan1field);
+    public JTable getTblHapus() {
+        return tblHapus;
     }
 
     public JTable getTblLowongan() {
         return tblLowongan;
     }
-    
+    public void viewAll2(List<Lowongan> low){
+        String[] judul={
+            "idLowongan","Nama Lowongan","DeadLine"
+        };
+        String[][] data=new String[low.size()][3];
+        for(int i=0;i<low.size();i++){
+            Lowongan l=low.get(i);
+            data[i][0]=String.valueOf(l.getIdLowongan());
+            data[i][1]=String.valueOf(l.getNama());
+            data[i][2]=String.valueOf(l.getDeadline());
+        }
+        tblHapus.setModel(new DefaultTableModel(data,judul));
+    }
     
     public void viewAll(List<Lowongan> low){
         String[] judul={
@@ -83,12 +91,20 @@ public class menuLowongan extends javax.swing.JFrame {
         }
         tblLowongan.setModel(new DefaultTableModel(data,judul));
     }
+    public int getSelected2(){
+        return tblHapus.getSelectedRow();
+    }
     public int getSelected(){
         return tblLowongan.getSelectedRow();
     }
     public void addAdapter(MouseAdapter e){
         tblLowongan.addMouseListener(e);
+        tblHapus.addMouseListener(e);
     }
+    public void setTanggal(String s){
+        tgl.setText(s);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,11 +125,10 @@ public class menuLowongan extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLowongan = new javax.swing.JTable();
         btnLihat = new javax.swing.JButton();
-        jScrollBar1 = new javax.swing.JScrollBar();
         jPanel3 = new javax.swing.JPanel();
-        idlowongan1 = new javax.swing.JLabel();
-        idlowongan1field = new javax.swing.JTextField();
         btnHapus = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblHapus = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,7 +166,7 @@ public class menuLowongan extends javax.swing.JFrame {
                             .addComponent(deadline)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(tgl))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(389, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +181,7 @@ public class menuLowongan extends javax.swing.JFrame {
                     .addComponent(tgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78)
                 .addComponent(btnAdd)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("       Buat Lowongan       ", jPanel1);
@@ -190,61 +205,64 @@ public class menuLowongan extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 150, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnLihat))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLihat)
+                .addGap(126, 126, 126))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
                 .addComponent(btnLihat)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("       Daftar Lowongan       ", jPanel2);
 
-        idlowongan1.setText("Id Lowongan   : ");
-
         btnHapus.setText("Hapus");
+
+        tblHapus.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblHapus);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(idlowongan1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(idlowongan1field, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGap(518, 518, 518)
                         .addComponent(btnHapus)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idlowongan1)
-                    .addComponent(idlowongan1field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160)
                 .addComponent(btnHapus)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("       Hapus Lowongan       ", jPanel3);
@@ -257,7 +275,7 @@ public class menuLowongan extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -280,16 +298,15 @@ public class menuLowongan extends javax.swing.JFrame {
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnLihat;
     private javax.swing.JLabel deadline;
-    private javax.swing.JLabel idlowongan1;
-    private javax.swing.JTextField idlowongan1field;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField namaLowonganfield;
     private javax.swing.JLabel namalowongan;
+    private javax.swing.JTable tblHapus;
     private javax.swing.JTable tblLowongan;
     private javax.swing.JTextField tgl;
     // End of variables declaration//GEN-END:variables
